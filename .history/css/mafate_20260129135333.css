@@ -1,0 +1,175 @@
+
+* 
+
+body {
+    margin: 0 auto;
+    
+}
+
+header.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 91);                    /* Entête */
+    margin: 0;
+    
+}
+
+header.header img {
+    width: 150px;
+}
+
+
+
+
+
+
+section.top-page {
+    background: url('../image/point-de-vue-mafate-frog_974.jpg');
+    background-size: cover;
+    height: 136vh;
+    padding: 0px;
+}
+/* page de bienvenue (landing page) */
+.big-title {
+    color: rgb(255, 255, 255);
+    font-size: 27px;
+    padding: 55px 360px;
+    background-color: rgba(0, 0, 0, 0.323);
+    margin-top: 0;
+    
+    
+
+}
+html, body {
+  height: 100%;           /* Nécessaire pour que le conteneur remplisse l'écran */
+  margin: 0;
+  padding: 0;
+}
+
+.conteneur-central {
+  display: flex;
+  justify-content: center;      /* centre horizontalement */
+  align-items: center;          /* centre verticalement */
+  height: 70vh;                /* 100% de la hauteur de l'écran */
+}
+
+/* La galerie contient les images */
+.galerie-images {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galerie-images img {
+  width: 390px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.galerie-images img:hover {
+  transform: scale(1.05);
+}
+
+.big-title2 {
+    color: black;
+    font-size: 20px;
+    padding: 10px 50px;
+}
+
+.footer {
+    width: 100%;
+  background-color: #d0caca;
+  padding: 200px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  border-top: 1px solid #ccc;
+  margin-top: 126x;
+   box-sizing: border-box;
+
+}
+
+.footer a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* menu de navigation */
+
+nav.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 970px;
+    margin-left: 180px;
+font-size: 30px;
+}
+
+
+nav.nav li {
+    color: white;
+}
+
+
+
+/* ===== MENU DEROULANT LIEUX-CULTES ===== */
+
+nav.nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;           /* espace entre les éléments */
+    margin: 0;
+    padding: 0;          
+}
+
+nav.nav ul.menu > li {
+    position: relative;
+}
+
+nav.nav ul.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Sous-menu caché */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: rgb(12, 16, 70);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: none;
+    min-width: 180px;
+    z-index: 10;
+}
+
+/* Liens du sous-menu */
+.submenu li a {
+    color: black;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+}
+
+/* Apparition au survol */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Effet hover */
+.submenu li a:hover {
+    background-color: #a01212;
+}

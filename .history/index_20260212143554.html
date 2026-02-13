@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racines - L'histoire de l'île intense</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.player{
+  background:#eee;
+  padding:15px;
+  width:250px;
+  border-radius:10px;
+  font-family:Arial;
+}
+li{
+  cursor:pointer;
+  margin:5px 0;
+}
+li:hover{
+  color:green;
+}
+</style>
+</head>
+
+                                
+<body>
+    <section class="top-page">
+        <header class="header"> 
+            <img src="image/logo22.png" alt="logo du site">
+        <nav class="nav">
+    <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+
+        <li class="dropdown">
+            <a href="#">Lieux cultes</a>
+            <ul class="submenu">
+                <li><a href="mafate.html">Mafate</a></li>
+                <li><a href="cilaos.html">Cilaos</a></li>
+                <li><a href="volcans.html">Les volcans</a></li>
+            </ul>
+        </li>
+
+         <li class="dropdown">
+        <a href="#">Personnalités emblématiques</a>
+            <ul class="submenu">
+                <li><a href="Olivier.html">Olivier Levasseur</a></li>
+                <li><a href="Desbassayns.html">Madame Desbassayns</a></li>
+                <li><a href="Garros.html">Rolland Garros</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+        </header>
+
+
+        <div class="landing-page">
+        <h1 class="big-title">Explore l'histoire vivante de la Réunion à travers ses lieux, ses volcans et ses figures emblématiques</h1>
+        </div>
+
+        <div class="conteneur-central">
+<section class="galerie-images">
+  <img src="image/mafate.jpg" alt="Image 1">
+  <img src="image/volcan.jpeg" alt="Image 2">
+  <img src="image/desbassyns.png" alt="Image 3">
+</section> 
+</div>
+
+<audio controls>
+  <source src="BASTER - Marmay Lontan.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="player">
+  <p id="titre">Choisis une musique</p>
+
+  <audio id="audio" controls></audio>
+
+  <ul>
+    <li onclick="playMusic('musique1.mp3','Musique 1')">Musique 1</li>
+    <li onclick="playMusic('musique2.mp3','Musique 2')">Musique 2</li>
+    <li onclick="playMusic('musique3.mp3','Musique 3')">Musique 3</li>
+  </ul>
+</div>
+
+<script>
+function playMusic(src,name){
+  const audio=document.getElementById("audio");
+  document.getElementById("titre").textContent=name;
+  audio.src=src;
+  audio.play();
+}
+</script>
+
+
+
+
+   <footer class="footer"> 
+    <h1 class="big-title2">Ce site retrace les grandes lignes de l’histoire de La Réunion, depuis l’île Bourbon jusqu’à aujourd’hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l’île intense.</h1>
+  <p>&copy; 2025 Racines de l’île Intense — Tous droits réservés.</p>
+  <p><a href="mentions-legales.html">Mentions légales</a> | <a href="contact.html">Contact</a></p>
+</footer>
+
+    </section>
+ 
+</body>
+</html>

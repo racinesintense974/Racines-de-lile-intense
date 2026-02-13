@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.player{
+  background:#eee;
+  padding:15px;
+  width:250px;
+  border-radius:10px;
+  font-family:Arial;
+}
+li{
+  cursor:pointer;
+  margin:5px 0;
+}
+li:hover{
+  color:green;
+}
+</style>
+</head>
+
+<body>
+
+<div class="player">
+  <p id="titre">Choisis ta musique </p>
+
+  <audio id="audio" controls></audio>
+
+  <ul>
+    <li onclick="playMusic('musique1.mp3','Musique 1')">Musique 1</li>
+    <li onclick="playMusic('musique2.mp3','Musique 2')">Musique 2</li>
+    <li onclick="playMusic('musique3.mp3','Musique 3')">Musique 3</li>
+  </ul>
+</div>
+
+<script>
+function playMusic(src,name){
+  const audio=document.getElementById("audio");
+  document.getElementById("titre").textContent=name;
+  audio.src=src;
+  audio.play();
+}
+</script>
+
+</body>
+</html>
