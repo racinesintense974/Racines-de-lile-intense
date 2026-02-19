@@ -44,7 +44,7 @@ li:hover{
          <li class="dropdown">
         <a href="#">Personnalités emblématiques</a>
             <ul class="submenu">
-                <li><a href="olivier-levasseur.html">Olivier Levasseur</a></li>
+                <li><a href="olivier">Olivier Levasseur</a></li>
                 <li><a href="Desbassayns.html">Madame Desbassayns</a></li>
                 <li><a href="Garros.html">Rolland Garros</a></li>
             </ul>
@@ -66,6 +66,28 @@ li:hover{
   <img src="image/desbassyns.png" alt="Image 3">
 </section> 
 </div>
+
+<div class="player">
+  <p id="titre">Choisis ta musique et ambiance toi sur le style de la Réunion</p>
+
+  <audio id="audio" controls></audio>
+
+  <ul>
+    <li onclick="playMusic('BASTER - Marmay Lontan.mp3','Baster: Marmay Lontan')">Baster: Marmay Lontan</li>
+    <li onclick="playMusic('musique2.mp3','Musique 2')">Musique 2</li>
+    <li onclick="playMusic('musique3.mp3','Musique 3')">Musique 3</li>
+  </ul>
+</div>
+
+<script>
+function playMusic(src,name){
+  const audio=document.getElementById("audio");
+  document.getElementById("titre").textContent=name;
+  audio.src=src;
+  audio.play();
+}
+</script>
+
 
    <footer class="footer"> 
     <h1 class="big-title2">Ce site retrace les grandes lignes de l’histoire de La Réunion, depuis l’île Bourbon jusqu’à aujourd’hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l’île intense.</h1>

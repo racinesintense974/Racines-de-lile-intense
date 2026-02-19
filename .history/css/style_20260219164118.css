@@ -24,7 +24,7 @@ header.header img {
 
 
 section.top-page {
-    background: url('../image/point-de-vue-mafate-frog_974.jpg');
+    background: url('../image/gptidr2.png');
     background-size: cover;
     height: 136vh;
     padding: 0px;
@@ -78,34 +78,16 @@ html, body {
     font-size: 20px;
     padding: 10px 50px;
 }
-
-.mafate-hero {
-  height: 100vh;
-  background-image: url("images/mafate.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contenu {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
+/* Sous-page */
 .footer {
     width: 100%;
   background-color: #d0caca;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   font-size: 15px;
   color: #555;
   border-top: 1px solid #ccc;
-  margin-top: 112px;
+  margin-top: 0px;
    box-sizing: border-box;
 
 }
@@ -155,7 +137,7 @@ nav.nav ul.menu > li {
 
 nav.nav ul.menu a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 30px;
     padding: 10px;
 }
@@ -190,4 +172,35 @@ nav.nav ul.menu a {
 /* Effet hover */
 .submenu li a:hover {
     background-color: #a01212;
+}
+
+
+.player{
+  background:#100f0fbe;
+  padding:15px;
+  width:260px;
+  border-radius:40px;
+  margin-top: 10px;
+  color:rgb(206, 197, 197);
+  box-shadow:0 4px 15px rgba(24, 24, 24, 0.4);
+}
+
+audio{
+  width:100%;
+  margin-bottom:10px;
+}
+
+#titre{
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+li{
+  cursor:pointer;
+  padding:5px;
+  border-radius:6px;
+}
+
+li:hover{
+  background:#edecec;
 }

@@ -24,7 +24,7 @@ header.header img {
 
 
 section.top-page {
-    background: url('../image/point-de-vue-mafate-frog_974.jpg');
+    background-image: url(../image/99.jpg);
     background-size: cover;
     height: 136vh;
     padding: 0px;
@@ -79,9 +79,9 @@ html, body {
     padding: 10px 50px;
 }
 
-.mafate-hero {
+.cilaos-hero {
   height: 100vh;
-  background-image: url("images/mafate.jpg");
+  background-image: url("D:image\99.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -155,7 +155,7 @@ nav.nav ul.menu > li {
 
 nav.nav ul.menu a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 30px;
     padding: 10px;
 }
