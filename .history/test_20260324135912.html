@@ -73,16 +73,17 @@
 
         <!-- 🎧 PLAYER MP3 AJOUTÉ ICI -->
         <div class="player">
-            <h3>🎧 Écoute un ti son péi</h3>
+            <h3>🎧 Écoute un son péi</h3>
 
             <audio id="audio">
                 <!-- 🔥 MET TON MP3 ICI -->
-                <source src="BASTER - Marmay Lontan.mp3" type="audio/mpeg">
-                <source src="" type="audio/mpeg">
+                <source src="audio/musique.mp3" type="audio/mpeg">
             </audio>
 
             <button onclick="playAudio()">▶️</button>
-            <button onclick="pauseAudio()">⏸️</button>
+            <button onclick="backwardAudio()">⏪</button>
+            <button onclick="togglePlay()" id="playBtn">▶️</button>
+            <button onclick="forwardAudio()">⏩</button>
 
             <!-- 📊 Progression -->
             <input type="range" id="progress" value="0">
@@ -110,13 +111,17 @@
 <script>
 let audio = document.getElementById("audio");
 let progress = document.getElementById("progress");
+let playBtn = document.getElementById("playBtn");
 
-function playAudio() {
-    audio.play();
-}
-
-function pauseAudio() {
-    audio.pause();
+// ▶️⏸️ bouton toggle
+function togglePlay() {
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = "⏸️";
+    } else {
+        audio.pause();
+        playBtn.textContent = "▶️";
+    }
 }
 
 function changeVolume(value) {
@@ -124,12 +129,27 @@ function changeVolume(value) {
 }
 
 audio.addEventListener("timeupdate", () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-});
+    let percent = (audio.currentTime / audio.duration) * 100;
+    progress.value = percent;
+
+    // affichage temps
+    let current = formatTime(audio.currentTime);
+    let total = formatTime(audio.duration);
+    document.getElementById("time").textCon
 
 progress.addEventListener("input", () => {
     audio.currentTime = (progress.value / 100) * audio.duration;
 });
+// ⏩ Avancer de 10 secondes
+function forwardAudio() {
+    audio.currentTime += 10;
+}
+
+// ⏪ Reculer de 10 secondes
+function backwardAudio() {
+    audio.currentTime -= 10;
+}
+
 </script>
  
 </body>

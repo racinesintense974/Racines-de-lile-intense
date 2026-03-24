@@ -6,37 +6,9 @@
     <title>Racines - L'histoire de l'île intense</title>
 <link rel="stylesheet" href="css/style.css">
 
-<style>
-/* 🎧 STYLE PLAYER */
-.player {
-    background: #181818;
-    padding: 20px;
-    border-radius: 20px;
-    width: 280px;
-    margin: 40px auto;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    color: white;
-}
-
-.player button {
-    background: #ff0055;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.player input[type="range"] {
-    width: 100%;
-    margin-top: 10px;
-}
-</style>
-
 </head>
 
+                                
 <body>
     <section class="top-page">
         <header class="header"> 
@@ -67,28 +39,11 @@
 
         </header>
 
+
+
+
         <div class="landing-page">
         <h1 class="big-title">Explore l'histoire vivante de la Réunion à travers ses lieux, ses volcans et ses figures emblématiques</h1>
-        </div>
-
-        <!-- 🎧 PLAYER MP3 AJOUTÉ ICI -->
-        <div class="player">
-            <h3>🎧 Écoute un ti son péi</h3>
-
-            <audio id="audio">
-                <!-- 🔥 MET TON MP3 ICI -->
-                <source src="BASTER - Marmay Lontan.mp3" type="audio/mpeg">
-                <source src="" type="audio/mpeg">
-            </audio>
-
-            <button onclick="playAudio()">▶️</button>
-            <button onclick="pauseAudio()">⏸️</button>
-
-            <!-- 📊 Progression -->
-            <input type="range" id="progress" value="0">
-
-            <!-- 🔊 Volume -->
-            <input type="range" min="0" max="1" step="0.01" onchange="changeVolume(this.value)">
         </div>
 
         <div class="conteneur-central">
@@ -106,31 +61,6 @@
 </footer>
 
     </section>
-
-<script>
-let audio = document.getElementById("audio");
-let progress = document.getElementById("progress");
-
-function playAudio() {
-    audio.play();
-}
-
-function pauseAudio() {
-    audio.pause();
-}
-
-function changeVolume(value) {
-    audio.volume = value;
-}
-
-audio.addEventListener("timeupdate", () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
-});
-
-progress.addEventListener("input", () => {
-    audio.currentTime = (progress.value / 100) * audio.duration;
-});
-</script>
  
 </body>
 </html>

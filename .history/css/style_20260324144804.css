@@ -59,9 +59,6 @@ html, body {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-   position: relative;
-    top: -50px;
-
 }
 
 .galerie-images img {
@@ -182,9 +179,7 @@ nav.nav ul.menu a {
     background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
     border: 1px solid #ff0055;
     margin: 20px auto;
-    padding: 15px;
-    position: relative;
-    top: 9px;
+    
 }
 
 .player button {

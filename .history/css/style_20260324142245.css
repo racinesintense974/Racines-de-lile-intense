@@ -59,9 +59,6 @@ html, body {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-   position: relative;
-    top: -50px;
-
 }
 
 .galerie-images img {
@@ -90,7 +87,7 @@ html, body {
   font-size: 15px;
   color: #555;
   border-top: 1px solid #ccc;
-  margin-top: 30px;
+  margin-top: 112px;
    box-sizing: border-box;
 
 }
@@ -141,11 +138,11 @@ nav.nav ul.menu > li {
 nav.nav ul.menu a {
     text-decoration: none;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px;
 }
 
-/* Sous-menu caché */
+/* Sous-menu caché *
 .submenu {
     list-style: none;
     padding: 0;
@@ -175,18 +172,4 @@ nav.nav ul.menu a {
 /* Effet hover */
 .submenu li a:hover {
     background-color: #a01212;
-}
-
-
-.player {
-    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
-    border: 1px solid #ff0055;
-    margin: 20px auto;
-    padding: 15px;
-    position: relative;
-    top: 9px;
-}
-
-.player button {
-    box-shadow: 0 0 10px #ff0055;
 }
