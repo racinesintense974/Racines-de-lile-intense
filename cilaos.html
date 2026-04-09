@@ -3,64 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racines-Mafate</title>
-<link rel="stylesheet" href="css/cilaos.css">
+    <title>Cirque de Cilaos — Racines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --wine:       #7a1f3a;
+            --wine-light: #c4516a;
+            --wine-pale:  #f0d0d8;
+            --stone:      #2a1f1a;
+            --earth:      #4a3228;
+            --cream:      #f5ede4;
+            --gold:       #c8a258;
+            --warm-gray:  #8a7a6a;
+            --deep:       #150e0a;
+            --thermal:    #7ab8c0;
+        }
+
+        html, body {
+            margin: 0; padding: 0;
+            background: var(--deep);
+            color: var(--cream);
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        header.header { display:flex; align-items:center; background-color:rgb(28,28,91); margin:0; position:relative; z-index:100; }
+        header.header img { width:150px; }
+        nav.nav { display:flex; justify-content:space-between; list-style:none; width:970px; margin-left:180px; font-size:30px; }
+        nav.nav li { color:white; }
+        nav.nav ul.menu { list-style:none; display:flex; gap:40px; margin:0; padding:0; }
+        nav.nav ul.menu > li { position:relative; }
+        nav.nav ul.menu a { text-decoration:none; color:white; font-size:30px; padding:10px; }
+        .submenu { list-style:none; padding:0; margin:0; position:absolute; background:rgb(12,16,70); border-radius:5px; border:1px solid black; display:none; min-width:180px; z-index:200; }
+        .submenu li a { color:black; padding:10px; display:block; font-size:20px; }
+        .dropdown:hover .submenu { display:block; }
+        .submenu li a:hover { background-color:#a01212; }
+
+        /* HERO */
+        .cilaos-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            background: var(--deep);
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 30%, rgba(122,31,58,0.3) 0%, transparent 65%),
+                radial-gradient(ellipse 80% 60% at 70% 80%, rgba(200,162,88,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 100% 100% at 50% 50%, #150e0a 20%, #0a0605 100%);
+            animation: warmPulse 6s ease-in-out infinite alternate;
+        }
+        @keyframes warmPulse { 0% { opacity:0.85; } 100% { opacity:1; } }
+
+        /* Animated thermal steam particles */
+        .steam-layer { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+        .steam {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(122,184,192,0.07) 0%, transparent 70%);
+            animation: riseStream linear infinite;
+        }
+        .steam:nth-child(1) { width:80px; height:200px; bottom:-50px; left:20%; animation-duration:8s; animation-delay:0s; }
+        .steam:nth-child(2) { width:60px; height:160px; bottom:-50px; left:45%; animation-duration:10s; animation-delay:-3s; }
+        .steam:nth-child(3) { width:70px; height:180px; bottom:-50px; left:70%; animation-duration:9s; animation-delay:-6s; }
+        .steam:nth-child(4) { width:50px; height:140px; bottom:-50px; left:85%; animation-duration:7s; animation-delay:-1s; }
+        @keyframes riseStream { from { transform:translateY(0) scaleX(1); opacity:0.5; } 50% { transform:translateY(-40vh) scaleX(1.3); opacity:0.8; } to { transform:translateY(-100vh) scaleX(0.6); opacity:0; } }
+
+        /* Mountain silhouettes */
+        .mountains { position:absolute; bottom:0; left:0; right:0; height:50%; }
+        .mountains svg { width:100%; height:100%; }
+
+        .hero-content {
+            position:relative; z-index:10;
+            padding: 0 80px 110px;
+            max-width: 860px;
+            animation: fadeUp 1.2s ease both;
+        }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+        .hero-label { font-family:'Cinzel',serif; font-size:11px; letter-spacing:6px; text-transform:uppercase; color:var(--wine-pale); margin-bottom:20px; display:block; opacity:0.8; }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 900; line-height: 0.9;
+            background: linear-gradient(150deg, #fff5ee 0%, var(--wine-pale) 35%, var(--wine-light) 65%, var(--wine) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size:1.25rem; font-weight:300;
+            color:rgba(245,237,228,0.72); font-style:italic;
+            max-width:520px;
+            border-left:3px solid var(--wine-light); padding-left:20px;
+        }
+
+        .hero-stats { display:flex; gap:50px; margin-top:50px; flex-wrap:wrap; }
+        .stat { animation:fadeUp 1.2s ease both; }
+        .stat:nth-child(1) { animation-delay:0.2s; }
+        .stat:nth-child(2) { animation-delay:0.4s; }
+        .stat:nth-child(3) { animation-delay:0.6s; }
+        .stat-number { font-family:'Cinzel',serif; font-size:2.8rem; font-weight:700; color:var(--wine-light); display:block; line-height:1; }
+        .stat-label { font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; color:rgba(245,237,228,0.45); }
+
+        .scroll-hint { position:absolute; bottom:30px; right:80px; z-index:10; display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(245,237,228,0.4); font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; }
+        .scroll-line { width:1px; height:60px; background:linear-gradient(var(--wine-light), transparent); animation:scrollAnim 2s ease-in-out infinite; }
+        @keyframes scrollAnim { 0%,100% { transform:scaleY(0.3); opacity:0.3; } 50% { transform:scaleY(1); opacity:1; } }
+
+        /* SECTIONS */
+        .divider { width:100%; height:2px; background:linear-gradient(90deg, transparent, var(--wine-light), transparent); opacity:0.25; }
+
+        .section { padding:80px 80px; max-width:1200px; margin:0 auto; }
+        .section-tag { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:5px; text-transform:uppercase; color:var(--wine-light); margin-bottom:14px; display:block; opacity:0.85; }
+        .section h2 { font-family:'Cinzel',serif; font-size:clamp(1.6rem,3vw,2.5rem); font-weight:700; color:var(--cream); margin-bottom:28px; line-height:1.2; }
+        .section p { color:rgba(245,237,228,0.78); margin-bottom:18px; font-size:1.05rem; max-width:820px; }
+        .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+
+        /* INTRO BLOCK */
+        .intro-block {
+            background: linear-gradient(135deg, rgba(122,31,58,0.25), rgba(21,14,10,0.7));
+            border-left: 4px solid var(--wine-light);
+            padding: 60px 80px; position:relative; overflow:hidden;
+        }
+        .intro-block::before { content:'🍷'; position:absolute; right:60px; top:50%; transform:translateY(-50%); font-size:9rem; opacity:0.06; }
+        .intro-block h2 { font-family:'Cinzel',serif; font-size:2rem; color:var(--wine-pale); margin-bottom:16px; }
+        .intro-block p { color:rgba(245,237,228,0.82); max-width:780px; font-size:1.08rem; margin-bottom:14px; }
+
+        /* TERROIR CARDS */
+        .terroir-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-top:40px; }
+        .terroir-card {
+            background: linear-gradient(135deg, rgba(122,31,58,0.2), rgba(21,14,10,0.6));
+            border:1px solid rgba(196,81,106,0.2); border-radius:8px; padding:28px;
+            transition:transform 0.3s, border-color 0.3s;
+        }
+        .terroir-card:hover { transform:translateY(-4px); border-color:rgba(196,81,106,0.5); }
+        .terroir-card-icon { font-size:2rem; margin-bottom:14px; display:block; }
+        .terroir-card h3 { font-family:'Cinzel',serif; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; color:var(--wine-light); margin-bottom:10px; }
+        .terroir-card p { font-size:0.95rem; color:rgba(245,237,228,0.65); margin:0; }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            background: linear-gradient(135deg, rgba(122,31,58,0.18), rgba(200,162,88,0.05));
+            border-top:2px solid rgba(196,81,106,0.3); border-bottom:2px solid rgba(196,81,106,0.3);
+            padding:50px 80px; text-align:center; position:relative; overflow:hidden;
+        }
+        .pull-quote::before { content:'"'; position:absolute; top:-30px; left:60px; font-family:'Cinzel',serif; font-size:15rem; color:rgba(196,81,106,0.06); line-height:1; }
+        .pull-quote blockquote { font-size:clamp(1.3rem,2.5vw,2rem); font-style:italic; font-weight:300; color:var(--cream); max-width:800px; margin:0 auto; position:relative; z-index:1; }
+        .pull-quote cite { display:block; margin-top:20px; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:3px; color:var(--wine-light); text-transform:uppercase; font-style:normal; }
+
+        /* THERMAL SECTION */
+        .thermal-block {
+            background: linear-gradient(to right, rgba(74,50,40,0.35), rgba(21,14,10,0.7));
+            padding: 80px;
+        }
+
+        /* RANDONNEE CARDS */
+        .rando-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:40px; }
+        .rando-card {
+            background: linear-gradient(135deg, rgba(74,50,40,0.35), rgba(21,14,10,0.6));
+            border:1px solid rgba(200,162,88,0.15); border-radius:8px; padding:28px;
+            transition:transform 0.3s, border-color 0.3s;
+        }
+        .rando-card:hover { transform:translateY(-4px); border-color:rgba(200,162,88,0.45); }
+        .rando-card-icon { font-size:2rem; margin-bottom:14px; display:block; }
+        .rando-card h3 { font-family:'Cinzel',serif; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+        .rando-card p { font-size:0.95rem; color:rgba(245,237,228,0.65); margin:0; }
+
+        /* CASCADES LIST */
+        .cascade-list { margin-top:28px; }
+        .cascade-item { display:flex; align-items:flex-start; gap:20px; padding:20px 0; border-bottom:1px solid rgba(196,81,106,0.1); }
+        .cascade-item:last-child { border-bottom:none; }
+        .cascade-dot { width:10px; height:10px; background:var(--thermal); border-radius:50%; margin-top:8px; flex-shrink:0; opacity:0.8; }
+        .cascade-item h4 { font-family:'Cinzel',serif; font-size:1rem; color:var(--cream); margin-bottom:4px; font-weight:700; }
+        .cascade-item p { font-size:0.95rem; color:rgba(245,237,228,0.65); margin:0; }
+
+        /* FOOTER */
+        .footer { width:100%; background-color:#0a0605; border-top:1px solid rgba(196,81,106,0.15); padding:40px 80px; text-align:center; font-size:0.9rem; color:rgba(245,237,228,0.4); box-sizing:border-box; margin-top:0; }
+        .footer .big-title2 { font-size:1rem; color:rgba(245,237,228,0.5); font-style:italic; max-width:800px; margin:0 auto 16px; }
+        .footer a { color:var(--wine-light); text-decoration:none; }
+        .footer a:hover { text-decoration:underline; }
+
+        section.top-page { background:var(--deep); min-height:100vh; height:auto; padding:0; }
+
+        @media (max-width:768px) {
+            .two-col { grid-template-columns:1fr; }
+            .section, .intro-block, .thermal-block { padding:40px 30px; }
+            .hero-content { padding:0 30px 80px; }
+            .hero-stats { gap:30px; }
+            .pull-quote { padding:40px 30px; }
+        }
+    </style>
 </head>
-
-
 <body>
 <section class="top-page">
-        <header class="header"> 
-            <img src="image/logo22.png" alt="logo du site">
+
+    <header class="header">
+        <img src="image/logo22.png" alt="logo du site">
         <nav class="nav">
-    <ul class="menu">
-        <li><a href="index.html" target="contenu">Accueil</a></li>
-
-        <li class="dropdown">
-            <a href="#">Lieux cultes</a>
-            <ul class="submenu">
-                <li><a href="mafate.html" target="contenu">Mafate</a></li>
-                <li><a href="cilaos.html" target="contenu">Cilaos</a></li>
-                <li><a href="volcans.html" target="contenu">Les volcans</a></li>
+            <ul class="menu">
+                <li><a href="index.html" target="contenu">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#">Lieux cultes</a>
+                    <ul class="submenu">
+                        <li><a href="mafate.html" target="contenu">Mafate</a></li>
+                        <li><a href="cilaos.html" target="contenu">Cilaos</a></li>
+                        <li><a href="volcans.html" target="contenu">Les volcans</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Personnalités emblématiques</a>
+                    <ul class="submenu">
+                        <li><a href="olivier-levasseur.html" target="contenu">Olivier Levasseur</a></li>
+                        <li><a href="Desbassayns.html" target="contenu">Madame Desbassayns</a></li>
+                        <li><a href="Garros.html" target="contenu">Rolland Garros</a></li>
+                    </ul>
+                </li>
             </ul>
-        </li>
+        </nav>
+    </header>
 
-         <li class="dropdown">
-        <a href="#">Personnalités emblématiques</a>
-            <ul class="submenu">
-                <li><a href="olivier-levasseur.html" target="contenu">Olivier Levasseur</a></li>
-                <li><a href="Desbassayns.html" target="contenu">Madame Desbassayns</a></li>
-                <li><a href="Garros.html" traget="contenu">Rolland Garros</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+    <!-- HERO -->
+    <div class="cilaos-hero">
+        <div class="hero-bg"></div>
+        <div class="steam-layer">
+            <div class="steam"></div><div class="steam"></div>
+            <div class="steam"></div><div class="steam"></div>
+        </div>
 
+        <!-- Silhouettes de remparts -->
+        <div class="mountains">
+            <svg viewBox="0 0 1440 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="0,500 0,300 100,240 200,280 320,180 440,260 560,140 680,220 800,170 920,240 1060,120 1180,210 1300,160 1380,220 1440,180 1440,500" fill="rgba(42,20,15,0.8)"/>
+                <polygon points="0,500 0,380 120,330 240,360 380,290 500,340 620,260 740,320 880,270 1000,340 1140,280 1260,350 1380,300 1440,340 1440,500" fill="rgba(30,14,10,0.9)"/>
+                <polygon points="0,500 0,450 160,420 320,440 480,400 640,435 800,405 960,440 1120,410 1280,445 1440,420 1440,500" fill="rgba(21,10,6,0.95)"/>
+            </svg>
+        </div>
 
-        </header>
+        <div class="hero-content">
+            <span class="hero-label">Île de La Réunion — Cirque naturel</span>
+            <h1 class="hero-title">Cirque de<br>Cilaos</h1>
+            <p class="hero-subtitle">La ville de montagne, ses thermes, son vin unique et ses remparts vertigineux au pied du Piton des Neiges.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">3 069 m</span><span class="stat-label">Piton des Neiges</span></div>
+                <div class="stat"><span class="stat-number">1 200 m</span><span class="stat-label">Altitude du village</span></div>
+                <div class="stat"><span class="stat-number">400+</span><span class="stat-label">Virages sur la route</span></div>
+            </div>
+        </div>
+        <div class="scroll-hint"><span>Découvrir</span><div class="scroll-line"></div></div>
+    </div>
 
-<section class="cilaos-hero">
-  <div class="contenu">
-    <h1>Cirque de Mafate</h1>
-    <p>Un endroit magnifique au cœur de La Réunion Cilaos est célèbre avant tout pour sa route d'accès spectaculaire,
-    construite à flanc de rempart. Bien qu'impressionnante, elle offre des panoramas époustouflants sur les gorges
-    de la rivière Saint-Étienne avant d'arriver dans le cirque.Contrairement à Mafate, Cilaos est accessible en voiture et abrite
-     une véritable petite ville de montagne.Situé au pied du Piton des Neiges (le point culminant de l'île),
-     le village est charmant, connu pour ses maisons créoles colorées et son église typique.
-     Cilaos est réputé pour ses sources thermales ferrugineuses, exploitées dans un établissement de cure moderne.
-     Le cirque est renommé pour son terroir unique.L'un des rares vignobles tropicaux de France, produisant du vin blanc, rouge et rosé.
-     La Lentille de Cilaos Considérée comme l'une des meilleures au monde, c'est la fierté locale
-    La Broderie le "jour de Cilaos" est un art de la broderie fine transmis de génération en génération.
-    C'est le point de départ de randonnées légendaires Le Piton des Neiges : L'ascension classique pour voir le lever du soleil.
-    Le Taïbit : Le col qui permet de basculer vers le cirque de Mafate.Cilaos est très connue pour ses cascades et bassins 
-    comme La Cascade de Bras Rouge,Le Bassin Roche et le Bassin Bleu parfaits pour se rafraîchir après une randonnée ou pour pratiquer le canyoning.
- </p>
-  </div>
+    <div class="divider"></div>
+
+    <!-- PRÉSENTATION -->
+    <div class="intro-block">
+        <h2>La ville suspendue entre ciel et basalte</h2>
+        <p>Contrairement à Mafate, Cilaos est accessible en voiture — mais sa route d'accès est elle-même un spectacle. Taillée à flanc de rempart, elle serpente à travers plus de 400 virages et offre des panoramas époustouflants sur les gorges de la rivière Saint-Étienne avant de plonger dans ce monde à part.</p>
+        <p>Situé au pied du Piton des Neiges — le sommet le plus haut de l'océan Indien avec ses 3 069 mètres — le village de Cilaos est une perle de montagne tropicale. Ses maisons créoles colorées, ses ruelles fleuries et son église caractéristique lui confèrent une atmosphère unique, à mi-chemin entre village alpin et bourg réunionnais.</p>
+        <p>Classé au Patrimoine Mondial de l'UNESCO en 2010 dans le cadre des "Pitons, Cirques et Remparts de l'île de La Réunion", le cirque de Cilaos est protégé comme l'un des paysages les plus remarquables de la planète.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TERROIR -->
+    <div class="section">
+        <span class="section-tag">Terroir & Spécialités</span>
+        <h2>Les trésors de Cilaos</h2>
+        <p>Cilaos possède un terroir d'exception, façonné par son altitude, son microclimat et ses habitants. Trois spécialités ont fait sa renommée bien au-delà des frontières de l'île.</p>
+
+        <div class="terroir-grid">
+            <div class="terroir-card">
+                <span class="terroir-card-icon">🍷</span>
+                <h3>Le Vin de Cilaos</h3>
+                <p>L'un des rares vignobles tropicaux de France. Blanc, rouge et rosé — les vins de Cilaos bénéficient d'une Indication Géographique Protégée et sont produits sur les pentes du cirque à plus de 1 000 m d'altitude.</p>
+            </div>
+            <div class="terroir-card">
+                <span class="terroir-card-icon">🫘</span>
+                <h3>La Lentille de Cilaos</h3>
+                <p>Considérée comme l'une des meilleures lentilles au monde grâce au sol volcanique et au microclimat unique du cirque. Fine, fondante et savoureuse, elle est la fierté culinaire de Cilaos.</p>
+            </div>
+            <div class="terroir-card">
+                <span class="terroir-card-icon">🧵</span>
+                <h3>La Broderie — Jour de Cilaos</h3>
+                <p>Un art ancestral de broderie fine transmis de génération en génération depuis le XIXe siècle. Chaque pièce est une œuvre unique, reconnue pour sa délicatesse et la précision de ses motifs floraux.</p>
+            </div>
+            <div class="terroir-card">
+                <span class="terroir-card-icon">♨️</span>
+                <h3>Les Thermes</h3>
+                <p>Les sources thermales ferrugineuses de Cilaos sont exploitées depuis le XIXe siècle. L'établissement thermal moderne propose cures et soins, attirant visiteurs en quête de détente après les efforts de la randonnée.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PULL QUOTE -->
+    <div class="pull-quote">
+        <blockquote>
+            "À Cilaos, on boit du vin produit à 1 200 mètres d'altitude, on mange des lentilles qui n'existent nulle part ailleurs, et on broderie depuis des générations — c'est ça, l'âme du cirque."
+            <cite>— Tradition créole de Cilaos</cite>
+        </blockquote>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- RANDONNÉE & NATURE -->
+    <div class="thermal-block">
+        <div style="max-width:1200px; margin:0 auto;">
+            <span class="section-tag" style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:5px; text-transform:uppercase; color:var(--wine-light); margin-bottom:14px; display:block; opacity:0.85;">Randonnée & Nature</span>
+            <div class="two-col">
+                <div>
+                    <h2 style="font-family:'Cinzel',serif; font-size:clamp(1.6rem,3vw,2.5rem); font-weight:700; color:var(--cream); margin-bottom:28px; line-height:1.2;">Sentiers légendaires</h2>
+                    <p style="color:rgba(245,237,228,0.78); margin-bottom:18px; font-size:1.05rem;">Cilaos est le point de départ de randonnées qui comptent parmi les plus belles de l'océan Indien. Son réseau de sentiers permet de rejoindre les sommets, les autres cirques et des paysages d'une beauté saisissante.</p>
+
+                    <div class="rando-grid" style="margin-top:0; grid-template-columns:1fr;">
+                        <div class="rando-card">
+                            <span class="rando-card-icon">🏔️</span>
+                            <h3>Piton des Neiges</h3>
+                            <p>L'ascension classique. Départ de nuit depuis Cilaos pour atteindre le sommet (3 069 m) au lever du soleil. Une expérience inoubliable, les pieds dans les nuages.</p>
+                        </div>
+                        <div class="rando-card">
+                            <span class="rando-card-icon">⛰️</span>
+                            <h3>Col du Taïbit → Mafate</h3>
+                            <p>La grande traversée mythique. Le col relie Cilaos au Cirque de Mafate à travers des sentiers vertigineux taillés à flanc de rempart.</p>
+                        </div>
+                        <div class="rando-card">
+                            <span class="rando-card-icon">🌿</span>
+                            <h3>Ilet à Cordes</h3>
+                            <p>Un hameau isolé au cœur du cirque, accessible uniquement à pied. Ambiance hors du temps, entre prairies et remparts géants.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 style="font-family:'Cinzel',serif; font-size:clamp(1.6rem,3vw,2.5rem); font-weight:700; color:var(--cream); margin-bottom:28px; line-height:1.2;">Cascades & Bassins</h2>
+                    <p style="color:rgba(245,237,228,0.78); margin-bottom:18px; font-size:1.05rem;">Cilaos est aussi connue pour ses cascades et bassins naturels, parfaits pour se rafraîchir après une randonnée ou pour pratiquer le canyoning dans ses ravines spectaculaires.</p>
+
+                    <div class="cascade-list">
+                        <div class="cascade-item">
+                            <div class="cascade-dot"></div>
+                            <div>
+                                <h4>Cascade de Bras Rouge</h4>
+                                <p>L'une des plus spectaculaires de l'île, accessible après une courte randonnée. Eau glacée et brume permanente.</p>
+                            </div>
+                        </div>
+                        <div class="cascade-item">
+                            <div class="cascade-dot"></div>
+                            <div>
+                                <h4>Bassin Roche</h4>
+                                <p>Bassin naturel aux eaux cristallines, niché dans un cadre de roches basaltiques. Idéal pour la baignade en famille.</p>
+                            </div>
+                        </div>
+                        <div class="cascade-item">
+                            <div class="cascade-dot"></div>
+                            <div>
+                                <h4>Bassin Bleu</h4>
+                                <p>Un joyau caché aux eaux d'un bleu profond. Accessible par un sentier longeant la rivière, avec quelques passages de canyoning.</p>
+                            </div>
+                        </div>
+                        <div class="cascade-item">
+                            <div class="cascade-dot"></div>
+                            <div>
+                                <h4>Canyoning dans les ravines</h4>
+                                <p>Les ravines de Cilaos offrent des parcours de canyoning de tous niveaux, encadrés par des professionnels locaux.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PRATIQUE -->
+    <div class="section">
+        <span class="section-tag">Pratique</span>
+        <h2>Infos pour votre visite</h2>
+        <div class="rando-grid">
+            <div class="rando-card">
+                <span class="rando-card-icon">🚗</span>
+                <h3>La Route mythique</h3>
+                <p>La RD241 compte plus de 400 virages. Compter environ 1h30 depuis Saint-Louis. Prudence par temps de pluie — éboulements fréquents. Parfois fermée par arrêté préfectoral.</p>
+            </div>
+            <div class="rando-card">
+                <span class="rando-card-icon">🌡️</span>
+                <h3>Climat frais</h3>
+                <p>À 1 200 m d'altitude, Cilaos est nettement plus frais que le littoral. Prévoir une veste même en été. Le brouillard peut s'installer rapidement en après-midi.</p>
+            </div>
+            <div class="rando-card">
+                <span class="rando-card-icon">🏡</span>
+                <h3>Hébergements</h3>
+                <p>Gîtes, chambres d'hôtes et hôtels au cœur du village. Réservation conseillée en haute saison (juillet-août) et lors des événements locaux.</p>
+            </div>
+            <div class="rando-card">
+                <span class="rando-card-icon">📍</span>
+                <h3>À ne pas manquer</h3>
+                <p>L'église Notre-Dame des Neiges, le marché local du week-end, une dégustation de vin au caveau des vignerons, et bien sûr... un repas aux lentilles de Cilaos.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h1 class="big-title2">Ce site retrace les grandes lignes de l'histoire de La Réunion, depuis l'île Bourbon jusqu'à aujourd'hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l'île intense.</h1>
+        <p>&copy; 2025 Racines de l'île Intense — Tous droits réservés.</p>
+        <p><a href="mentions-legales.html" target="contenu">Mentions légales</a> | <a href="contact.html" target="contenu">Contact</a></p>
+    </footer>
+
 </section>
-  <footer class="footer"> 
-    <h1 class="big-title2">Ce site retrace les grandes lignes de l’histoire de La Réunion, depuis l’île Bourbon jusqu’à aujourd’hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l’île intense.</h1>
-  <p>&copy; 2025 Racines de l’île Intense — Tous droits réservés.</p>
-  <p><a href="mentions-legales.html">Mentions légales</a> | <a href="contact.html">Contact</a></p>
-</footer>
 </body>
 </html>
