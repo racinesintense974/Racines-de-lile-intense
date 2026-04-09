@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racines - L'île intense</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+       
+
+iframe#contenu {
+    width: 100%;
+    border: none;
+    display: block;
+    /* Supprime toute hauteur fixe */
+}
+
+        /* Player fixe en bas */
+        .player-fixe {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #181818;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 9999;
+            color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+        }
+        .player-fixe button {
+            background: #ff0055;
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .player-fixe input[type="range"] { width: 120px; }
+        #titre-chanson { font-weight: bold; min-width: 180px; }
+
+        /* L'iframe prend tout l'espace */
+        #contenu {
+            width: 100%;
+            flex: 1;
+            border: none;
+            /* Laisse de la place pour le player fixe en bas */
+            padding-bottom: 70px;
+        }
+        iframe#contenu {
+            height: calc(100vh - 70px);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🖼️ Contenu du site dans une iframe -->
+    <iframe id="contenu" src="index.html" name="contenu"></iframe>
+
+    <!-- 🎧 Player fixe qui ne se recharge JAMAIS -->
+    <div class="player-fixe">
+        <span>🎧</span>
+        <span id="titre-chanson">BASTER - Marmay Lontan</span>
+        <button onclick="previous()">⏮️</button>
+        <button onclick="playAudio()">▶️</button>
+        <button onclick="pauseAudio()">⏸️</button>
+        <button onclick="next()">⏭️</button>
+        <input type="range" id="progress" value="0" title="Progression">
+        <input type="range" min="0" max="1" step="0.01" value="1" title="Volume" onchange="changeVolume(this.value)">
+    </div>
+
+    <script>
+
+
+
+
+
+        const playlist = [
+            { src: "La", titre: "BASTER - Marmay Lontan" },
+            { src: "Toué lé jolie.mp3",           titre: "Toué lé jolie" },
+            { src: "Voleur canards.mp3",           titre: "Voleurs canards" },
+            { src: "BASTER - Marmay Lontan.mp3", titre: "BASTER - Marmay Lontan" },
+            
+        ];
+
+        let index = 0;
+        const audio = new Audio(playlist[0].src);
+        const progress = document.getElementById("progress");
+
+        function chargerMusique() {
+            audio.src = playlist[index].src;
+            document.getElementById("titre-chanson").textContent = playlist[index].titre;
+            audio.play();
+        }
+
+        function playAudio()  { audio.play(); }
+        function pauseAudio() { audio.pause(); }
+        function changeVolume(v) { audio.volume = v; }
+
+        function next() {
+            index = (index + 1) % playlist.length;
+            chargerMusique();
+        }
+
+        function previous() {
+            index = (index - 1 + playlist.length) % playlist.length;
+            chargerMusique();
+        }
+
+        audio.addEventListener("timeupdate", () => {
+            if (audio.duration) {
+                progress.value = (audio.currentTime / audio.duration) * 100;
+            }
+        });
+
+        progress.addEventListener("input", () => {
+            audio.currentTime = (progress.value / 100) * audio.duration;
+        });
+
+        audio.addEventListener("ended", next);
+    </script>
+
+</body>
+</html>
