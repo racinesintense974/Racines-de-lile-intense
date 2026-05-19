@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piton de la Fournaise — Racines</title>
 
-    <!-- Le fichier CSS est dans le dossier css/ -->
-    <link rel="stylesheet" href="css/volcans.css">
+    <!-- Polices Google : Cinzel (titres) + Crimson Pro (texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Crimson+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+    <!-- Fichier CSS séparé pour tous les styles -->
+    <link rel="stylesheet" href="css/volcanst.css">
 
 </head>
 <body>
 
-    <!-- ===========================
-         NAVIGATION
-    =========================== -->
+    <!-- ===== BARRE DE NAVIGATION ===== -->
     <header class="header">
         <img src="image/logo22.png" alt="Logo Racines">
         <nav class="nav">
@@ -21,6 +23,7 @@
 
                 <li><a href="index.html" target="contenu">Accueil</a></li>
 
+                <!-- Menu déroulant : Lieux cultes -->
                 <li class="dropdown">
                     <a href="#">Lieux cultes</a>
                     <ul class="submenu">
@@ -30,6 +33,7 @@
                     </ul>
                 </li>
 
+                <!-- Menu déroulant : Personnalités -->
                 <li class="dropdown">
                     <a href="#">Personnalités emblématiques</a>
                     <ul class="submenu">
@@ -44,23 +48,25 @@
     </header>
 
 
-    <!-- ===========================
-         HÉRO
-         Grande photo plein écran
-         La photo de fond est définie
-         dans volcans.css (.hero-photo)
-    =========================== -->
+    <!-- ===== HÉRO — grande photo plein écran + titre ===== -->
     <section class="hero">
 
+        <!-- Photo de fond (style défini dans volcans.css) -->
         <div class="hero-photo"></div>
 
+        <!-- Texte positionné en bas par-dessus la photo -->
         <div class="hero-texte">
+
             <span class="hero-etiquette">Île de La Réunion — Massif du Sud-Est</span>
+
             <h1 class="hero-titre">Piton de<br>la Fournaise</h1>
+
             <p class="hero-sous-titre">
                 L'un des volcans les plus actifs de la planète,
                 gardien de feu de l'île intense.
             </p>
+
+            <!-- 3 statistiques -->
             <div class="hero-chiffres">
                 <div>
                     <span class="chiffre-nombre">2 632 m</span>
@@ -75,17 +81,16 @@
                     <span class="chiffre-legende">De l'île formée par le volcan</span>
                 </div>
             </div>
-        </div>
 
+        </div>
     </section>
 
 
+    <!-- Ligne décorative entre les sections -->
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         ALERTE — Éruption 2026
-    =========================== -->
+    <!-- ===== ALERTE — Dernière éruption 2026 ===== -->
     <section class="section-alerte">
 
         <div class="badge-alerte">Dernière éruption</div>
@@ -93,13 +98,12 @@
         <h2>Éruption du 13 février 2026 — Un événement historique</h2>
 
         <p>
-            Après plus de deux ans de silence, le Piton de la Fournaise s'est réveillé
-            le 13 février 2026. La lave a dévalé les Grandes Pentes et traversé la Route
-            Nationale 2 le 13 mars — du jamais vu depuis 2007 — avant de plonger dans
-            l'océan dans la nuit du 15 au 16 mars.
+            Après plus de deux ans de silence, le Piton de la Fournaise s'est réveillé le 13 février 2026.
+            La lave a traversé la Route Nationale 2 le 13 mars — du jamais vu depuis 2007 —
+            avant de plonger dans l'océan dans la nuit du 15 au 16 mars.
         </p>
 
-        <!-- Chaque div = une étape de la chronologie -->
+        <!-- Grille : chaque div = une étape de la chronologie -->
         <div class="grille-timeline">
 
             <div class="timeline-etape">
@@ -119,7 +123,7 @@
 
             <div class="timeline-etape">
                 <span class="timeline-date">25 Mars 2026</span>
-                <p>Arrêt temporaire de l'éruption. Le trémor volcanique disparaît progressivement.</p>
+                <p>Arrêt temporaire. Le trémor volcanique disparaît progressivement.</p>
             </div>
 
             <div class="timeline-etape">
@@ -129,7 +133,7 @@
 
             <div class="timeline-etape">
                 <span class="timeline-date">2 Avr. 2026</span>
-                <p>50 jours de spectacle continu. Des milliers de curieux sur la Route des Laves.</p>
+                <p>50 jours de spectacle. Des milliers de curieux sur la Route des Laves.</p>
             </div>
 
         </div>
@@ -140,34 +144,59 @@
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         GALERIE PHOTOS
-         Tes 3 photos + 1 grande
-         Les images sont dans image/
-    =========================== -->
+    <!-- ===== GALERIE PHOTOS ===== -->
+    <!-- Images libres de droits depuis Wikimedia Commons -->
     <section class="section-photos">
 
-        <span class="etiquette">En images</span>
-        <h2>Le volcan en feu</h2>
+        <span class="etiquette-section">En images</span>
+        <h2 style="font-family:'Cinzel',serif; font-size:2rem; color:var(--texte-clair);">Le volcan en feu</h2>
 
         <div class="galerie-photos">
 
-            <!-- Grande photo (classe "grande" = 2 colonnes) -->
+            <!-- classe "grande" = prend 2 colonnes (voir CSS) -->
             <div class="carte-photo grande">
-                <img src="image/volcan3.png" alt="Rivières de lave sur les pentes du Piton de la Fournaise">
-                <div class="legende">Rivières de lave incandescentes — Photo Vincent Cheville</div>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Piton_de_la_Fournaise_in_eruption_on_January_2010.jpg/1280px-Piton_de_la_Fournaise_in_eruption_on_January_2010.jpg"
+                    alt="Fontaine de lave — éruption janvier 2010"
+                    loading="lazy"
+                >
+                <div class="legende">Fontaine de lave lors de l'éruption de janvier 2010</div>
             </div>
 
-            <!-- Photo normale (1 colonne) -->
             <div class="carte-photo">
-                <img src="image/volcan1.png" alt="Lave atteignant l'océan Indien">
-                <div class="legende">La lave rejoint l'océan Indien</div>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Piton_de_la_Fournaise_-_Eruption_-_Avril_2007.jpg/800px-Piton_de_la_Fournaise_-_Eruption_-_Avril_2007.jpg"
+                    alt="Coulée de lave — éruption avril 2007"
+                    loading="lazy"
+                >
+                <div class="legende">Coulée de lave, éruption d'avril 2007</div>
             </div>
 
-            <!-- Photo normale (1 colonne) -->
             <div class="carte-photo">
-                <img src="image/volcan2.png" alt="Coulée de lave traversant la route">
-                <div class="legende">La coulée traverse la route nationale</div>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Piton_de_la_fournaise_20050217.jpg/800px-Piton_de_la_fournaise_20050217.jpg"
+                    alt="Vue aérienne du cratère Dolomieu"
+                    loading="lazy"
+                >
+                <div class="legende">Le cratère Dolomieu vu du ciel</div>
+            </div>
+
+            <div class="carte-photo">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Lave_en_coussin_Piton_de_la_Fournaise.jpg/800px-Lave_en_coussin_Piton_de_la_Fournaise.jpg"
+                    alt="Lave en coussin sur les pentes"
+                    loading="lazy"
+                >
+                <div class="legende">Lave en coussin sur les pentes</div>
+            </div>
+
+            <div class="carte-photo">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Enclos_Fouque_Piton_de_la_Fournaise.jpg/800px-Enclos_Fouque_Piton_de_la_Fournaise.jpg"
+                    alt="L'Enclos Fouqué depuis le Pas de Bellecombe"
+                    loading="lazy"
+                >
+                <div class="legende">L'Enclos Fouqué depuis le Pas de Bellecombe</div>
             </div>
 
         </div>
@@ -178,32 +207,27 @@
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         PRÉSENTATION GÉNÉRALE
-         Deux blocs de texte côte à côte
-    =========================== -->
-    <section class="section-texte">
+    <!-- ===== PRÉSENTATION GÉOGRAPHIQUE ===== -->
+    <section class="section-contenu">
 
-        <span class="etiquette">Géographie & Géologie</span>
+        <span class="etiquette-section">Géographie & Géologie</span>
 
+        <!-- 2 blocs de texte côte à côte -->
         <div class="deux-colonnes">
 
             <div>
                 <h2>Un géant de feu au cœur de l'océan Indien</h2>
                 <p>
-                    Le Piton de la Fournaise culmine à 2 632 mètres et constitue le sommet
-                    du massif volcanique qui forme 40 % de l'île de La Réunion dans sa partie sud-est.
-                    C'est un volcan bouclier : la lave coule en rivières fluides plutôt que d'exploser.
+                    Le Piton de la Fournaise culmine à 2 632 mètres et forme 40 % de l'île de La Réunion.
+                    C'est un volcan bouclier : la lave coule en rivières fluides plutôt que d'exploser violemment.
                 </p>
                 <p>
-                    Avec une éruption en moyenne par an, c'est l'un des volcans les plus actifs
-                    de la planète. Depuis 1979, l'Observatoire Volcanologique (OVPF-IPGP)
-                    le surveille en continu grâce à des centaines de capteurs.
+                    Avec une éruption en moyenne par an, c'est l'un des volcans les plus actifs de la planète.
+                    Depuis 1979, l'Observatoire Volcanologique (OVPF-IPGP) le surveille en continu.
                 </p>
                 <p>
                     La plupart des éruptions se déroulent à l'intérieur de l'Enclos Fouqué,
-                    une caldeira de 8 km de diamètre. Plus rarement, les coulées atteignent
-                    les zones habitées — comme en 1977 et lors de l'éruption de 2026.
+                    une caldeira de 8 km de diamètre. Plus rarement, les coulées atteignent les zones habitées.
                 </p>
             </div>
 
@@ -211,17 +235,16 @@
                 <h2>Le cratère Dolomieu</h2>
                 <p>
                     Le cratère Dolomieu mesure 1 000 m de long sur 700 m de large.
-                    Il doit son nom au géologue Déodat Gratet de Dolomieu, cité par le
-                    naturaliste Bory de Saint-Vincent lors de la première description
-                    scientifique du volcan en 1801.
+                    Il doit son nom au géologue Déodat Gratet de Dolomieu, en hommage rendu
+                    par le naturaliste Bory de Saint-Vincent en 1801.
                 </p>
                 <p>
-                    En avril 2007, une éruption colossale a provoqué l'effondrement du fond
-                    du cratère à 300 mètres de profondeur, redessinant entièrement le sommet.
+                    En avril 2007, une éruption colossale a provoqué l'effondrement du fond du cratère
+                    à 300 mètres de profondeur, redessinant entièrement le sommet du volcan.
                 </p>
                 <p>
                     Chaque éruption débute par une fissure de plusieurs centaines de mètres
-                    d'où jaillit la lave en rideau de feu, avant de se concentrer en un cône.
+                    d'où jaillit la lave en rideau de feu, avant de se concentrer en un cône éruptif.
                 </p>
             </div>
 
@@ -233,9 +256,7 @@
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         CITATION MIS EN AVANT
-    =========================== -->
+    <!-- ===== CITATION MIS EN AVANT ===== -->
     <div class="citation-bloc">
         <blockquote>
             "L'avenir du Piton de la Fournaise reste comme toujours incertain —
@@ -248,15 +269,13 @@
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         6 CARTES — Faits à savoir
-    =========================== -->
+    <!-- ===== 6 CARTES — Faits à savoir ===== -->
     <section class="section-cartes">
 
-        <span class="etiquette">Le saviez-vous ?</span>
-        <h2>Faits remarquables</h2>
+        <span class="etiquette-section">Le saviez-vous ?</span>
+        <h2 style="font-family:'Cinzel',serif; font-size:2rem; color:var(--texte-clair);">Faits remarquables</h2>
 
-        <!-- Grille de 6 cartes -->
+        <!-- Grille de 6 cartes, s'adapte automatiquement à l'écran -->
         <div class="grille-cartes">
 
             <div class="carte-info">
@@ -274,7 +293,7 @@
             <div class="carte-info">
                 <span class="carte-icone">🌊</span>
                 <h3>Lave dans l'océan</h3>
-                <p>Quand la lave atteint la mer, elle produit du "laze" — un panache gazeux corrosif et spectaculaire.</p>
+                <p>Quand la lave atteint la mer, elle produit du "laze" — un panache gazeux corrosif et irritant.</p>
             </div>
 
             <div class="carte-info">
@@ -292,7 +311,7 @@
             <div class="carte-info">
                 <span class="carte-icone">⚠️</span>
                 <h3>Éruptions hors-enclos</h3>
-                <p>Environ tous les 50 ans, la lave sort de l'enclos et peut atteindre des zones habitées — comme en 1977 et 2026.</p>
+                <p>Environ tous les 50 ans, la lave sort de l'enclos et peut atteindre les zones habitées — comme en 1977 et 2026.</p>
             </div>
 
         </div>
@@ -303,14 +322,12 @@
     <div class="separateur"></div>
 
 
-    <!-- ===========================
-         COMMENT VISITER
-    =========================== -->
+    <!-- ===== COMMENT VISITER ===== -->
     <section class="section-visiter">
 
-        <div class="contenu-visiter">
+        <div style="max-width: 1200px; margin: 0 auto;">
 
-            <span class="etiquette">Pratique</span>
+            <span class="etiquette-section">Pratique</span>
 
             <div class="deux-colonnes">
 
@@ -343,7 +360,7 @@
                         spectaculaires lors des éruptions — des milliers de personnes s'y rassemblent.
                     </p>
                     <p>
-                        Le survol en <span class="accent">drone est strictement interdit</span>
+                        Le survol en <span class="accent">drone est interdit</span>
                         par arrêté préfectoral dans toute la zone d'éruption.
                     </p>
                 </div>
@@ -355,9 +372,7 @@
     </section>
 
 
-    <!-- ===========================
-         PIED DE PAGE
-    =========================== -->
+    <!-- ===== PIED DE PAGE ===== -->
     <footer class="footer">
         <h1 class="big-title2">
             Ce site retrace les grandes lignes de l'histoire de La Réunion,

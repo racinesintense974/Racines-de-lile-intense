@@ -1,0 +1,629 @@
+/* =============================================
+   volcans.css — Styles de la page Piton de la Fournaise
+   Projet : Racines de l'île Intense
+   
+   STRUCTURE DU FICHIER :
+   1. Variables (couleurs)
+   2. Reset
+   3. Body
+   4. Navigation
+   5. Héro (grande bannière)
+   6. Séparateur
+   7. Section Alerte (éruption 2026)
+   8. Galerie photos
+   9. Section texte
+   10. Citation
+   11. Cartes infos
+   12. Section Visiter
+   13. Footer
+   14. Responsive (téléphone)
+============================================= */
+
+
+/* =============================================
+   1. VARIABLES CSS
+   Change une couleur ici = change partout !
+============================================= */
+:root {
+    --rouge:       #c83a00;   /* rouge lave */
+    --orange:      #e86000;   /* orange feu */
+    --jaune:       #f0a800;   /* jaune lave */
+    --fond-noir:   #120500;   /* fond très sombre */
+    --fond-fonce:  #1e0800;   /* fond un peu moins sombre */
+    --blanc-casse: #f5ece4;   /* texte principal */
+    --gris-texte:  rgba(245, 236, 228, 0.65); /* texte secondaire */
+}
+
+
+/* =============================================
+   2. RESET
+   Supprime les marges par défaut du navigateur
+============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =============================================
+   3. BODY — style général de la page
+============================================= */
+body {
+    background-color: var(--fond-noir);
+    color: var(--blanc-casse);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden; /* pas de scroll horizontal */
+}
+
+
+/* =============================================
+   4. NAVIGATION
+============================================= */
+header.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 91); /* bleu marine */
+}
+
+header.header img {
+    width: 150px;
+}
+
+nav.nav {
+    display: flex;
+    list-style: none;
+    width: 970px;
+    margin-left: 180px;
+}
+
+nav.nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Chaque item du menu a position:relative
+   pour que le sous-menu se place en dessous */
+nav.nav ul.menu > li {
+    position: relative;
+}
+
+nav.nav ul.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Sous-menu : caché par défaut */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;      /* se place sous le parent */
+    top: 100%;
+    left: 0;
+    background: rgb(12, 16, 70);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: none;           /* invisible par défaut */
+    min-width: 200px;
+    z-index: 200;            /* passe au-dessus de tout */
+}
+
+.submenu li a {
+    color: black;
+    padding: 10px 14px;
+    display: block;
+    font-size: 20px;
+}
+
+/* Affiche le sous-menu quand on survole le parent */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: #a01212;
+    color: white;
+}
+
+
+/* =============================================
+   5. HÉRO
+   Grande section plein écran avec photo de fond
+============================================= */
+.hero {
+    position: relative;
+    height: 100vh;           /* hauteur = 100% de l'écran */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* contenu placé en bas */
+}
+
+/* Photo de fond — couvre toute la section */
+.hero-photo {
+    position: absolute;
+    inset: 0;                /* équivaut à top/right/bottom/left: 0 */
+    background-image: url('../image/volcan3.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Dégradé sombre par-dessus la photo
+   pour que le texte soit lisible */
+.hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 5, 0, 0.1) 0%,   /* transparent en haut */
+        rgba(18, 5, 0, 0.9) 100%  /* très sombre en bas */
+    );
+}
+
+/* Texte du héro — positionné au-dessus de la photo */
+.hero-texte {
+    position: relative;
+    z-index: 10;             /* passe au-dessus du dégradé */
+    padding: 0 80px 80px;
+    max-width: 900px;
+}
+
+/* Petite étiquette en haut */
+.hero-etiquette {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* Grand titre principal */
+.hero-titre {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.9;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Sous-titre en italique avec barre à gauche */
+.hero-sous-titre {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(245, 236, 228, 0.8);
+    border-left: 3px solid var(--orange);
+    padding-left: 18px;
+    max-width: 500px;
+}
+
+/* Conteneur des 3 chiffres clés */
+.hero-chiffres {
+    display: flex;
+    gap: 50px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+/* Nombre en gros */
+.chiffre-nombre {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--orange);
+    display: block;
+    line-height: 1;
+}
+
+/* Texte sous le nombre */
+.chiffre-legende {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   6. SÉPARATEUR
+   Ligne décorative entre les sections
+============================================= */
+.separateur {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--orange), transparent);
+    opacity: 0.4;
+}
+
+
+/* =============================================
+   7. SECTION ALERTE — Dernière éruption 2026
+============================================= */
+.section-alerte {
+    background: linear-gradient(135deg, #2a0800, var(--fond-noir));
+    border-left: 5px solid var(--rouge);
+    padding: 60px 80px;
+}
+
+/* Badge "Dernière éruption" avec point clignotant */
+.badge-alerte {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--rouge);
+    color: white;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+/* Le petit point qui clignote à gauche du badge */
+.badge-alerte::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: clignoter 1s step-end infinite;
+}
+
+/* Animation du clignotement */
+@keyframes clignoter {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.section-alerte h2 {
+    font-size: 1.8rem;
+    color: var(--jaune);
+    margin-bottom: 16px;
+}
+
+.section-alerte > p {
+    color: rgba(245, 236, 228, 0.82);
+    max-width: 800px;
+    font-size: 1.05rem;
+    margin-bottom: 0;
+}
+
+/* Grille de la chronologie */
+.grille-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 36px;
+}
+
+/* Chaque étape de la timeline */
+.timeline-etape {
+    background: rgba(230, 96, 0, 0.08);
+    border: 1px solid rgba(230, 96, 0, 0.22);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.timeline-etape:hover {
+    border-color: var(--orange);
+    background: rgba(230, 96, 0, 0.16);
+}
+
+/* Date en haut de chaque étape */
+.timeline-date {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+.timeline-etape p {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   8. GALERIE PHOTOS
+============================================= */
+.section-photos {
+    padding: 70px 80px;
+}
+
+/* Titre de section */
+.section-photos h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-top: 8px;
+    margin-bottom: 28px;
+}
+
+/* Petite étiquette colorée */
+.etiquette {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* Grille de 3 colonnes */
+.galerie-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* Chaque carte photo */
+.carte-photo {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;        /* les coins arrondis coupent l'image */
+    aspect-ratio: 4 / 3;    /* ratio fixe pour toutes les photos */
+}
+
+.carte-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* remplit sans déformer */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom doux au survol */
+.carte-photo:hover img {
+    transform: scale(1.07);
+}
+
+/* Légende en bas de la photo, sur fond dégradé */
+.carte-photo .legende {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 16px 14px;
+    background: linear-gradient(to top, rgba(18, 5, 0, 0.92), transparent);
+    color: white;
+    font-size: 0.88rem;
+    font-style: italic;
+}
+
+/* Photo principale = 2 colonnes de large */
+.carte-photo.grande {
+    grid-column: span 2;
+}
+
+
+/* =============================================
+   9. SECTION TEXTE — Présentation générale
+============================================= */
+.section-texte {
+    padding: 70px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-texte h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-bottom: 22px;
+    line-height: 1.2;
+}
+
+.section-texte p {
+    color: var(--gris-texte);
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    max-width: 820px;
+}
+
+/* Deux colonnes côte à côte */
+.deux-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+
+/* =============================================
+   10. CITATION MIS EN AVANT
+============================================= */
+.citation-bloc {
+    background: linear-gradient(135deg, rgba(200, 58, 0, 0.1), rgba(240, 168, 0, 0.04));
+    border-top: 2px solid rgba(230, 96, 0, 0.35);
+    border-bottom: 2px solid rgba(230, 96, 0, 0.35);
+    padding: 50px 80px;
+    text-align: center;
+}
+
+.citation-bloc blockquote {
+    font-size: 1.7rem;
+    font-style: italic;
+    color: var(--blanc-casse);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.citation-bloc cite {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--orange);
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+
+/* =============================================
+   11. CARTES INFOS — 6 faits à savoir
+============================================= */
+.section-cartes {
+    padding: 70px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-cartes h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+/* Grille auto — s'adapte à la largeur de l'écran */
+.grille-cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+/* Chaque carte */
+.carte-info {
+    background: linear-gradient(135deg, var(--fond-fonce), var(--fond-noir));
+    border: 1px solid rgba(230, 96, 0, 0.15);
+    border-radius: 10px;
+    padding: 26px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Légère élévation au survol */
+.carte-info:hover {
+    transform: translateY(-5px);
+    border-color: rgba(230, 96, 0, 0.5);
+}
+
+.carte-icone {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.carte-info h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+.carte-info p {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   12. SECTION VISITER
+============================================= */
+.section-visiter {
+    background: linear-gradient(to right, var(--fond-fonce), var(--fond-noir));
+    padding: 70px 80px;
+}
+
+.section-visiter .contenu-visiter {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-visiter h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-bottom: 22px;
+}
+
+.section-visiter p {
+    color: var(--gris-texte);
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+/* Mot mis en valeur en jaune */
+.accent {
+    color: var(--jaune);
+}
+
+
+/* =============================================
+   13. FOOTER — Pied de page
+============================================= */
+footer.footer {
+    background-color: #080300;
+    border-top: 1px solid rgba(230, 96, 0, 0.15);
+    padding: 40px 80px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(245, 236, 228, 0.4);
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.footer .big-title2 {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(245, 236, 228, 0.5);
+    max-width: 800px;
+    margin: 0 auto 14px;
+    font-weight: normal;
+}
+
+footer a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================================
+   14. RESPONSIVE — adaptation mobile
+   Ces règles s'appliquent seulement si l'écran
+   fait moins de 768px de large (téléphone)
+============================================= */
+@media (max-width: 768px) {
+
+    /* Titre héro plus petit sur téléphone */
+    .hero-titre { font-size: 44px; }
+
+    /* Moins de padding sur les côtés */
+    .hero-texte { padding: 0 24px 50px; }
+
+    /* Chiffres en colonne */
+    .hero-chiffres { flex-wrap: wrap; gap: 24px; }
+
+    /* Tout en une seule colonne */
+    .deux-colonnes { grid-template-columns: 1fr; }
+    .galerie-photos { grid-template-columns: 1fr; }
+
+    /* La grande photo reprend 1 colonne */
+    .carte-photo.grande { grid-column: span 1; }
+
+    /* Réduction des paddings */
+    .section-photos,
+    .section-texte,
+    .section-cartes,
+    .section-visiter,
+    .section-alerte,
+    .citation-bloc { padding: 40px 24px; }
+
+    footer.footer { padding: 30px 24px; }
+}
