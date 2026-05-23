@@ -2,61 +2,299 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mme desbassyns</title>
-    <link rel="stylesheet" href="css/meow.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madame Desbassayns — Racines</title>
+
+    <!-- Le fichier CSS est dans le dossier css/ -->
+    <link rel="stylesheet" href="css/desbassayns.css">
+
 </head>
 <body>
 
-<body>
-    <section class="top-page">
-        <header class="header"> 
-            <img src="image/logo22.png" alt="logo du site">
+    <!-- ===========================
+         NAVIGATION
+         Identique à toutes les autres pages
+    =========================== -->
+    <header class="header">
+        <img src="image/logo22.png" alt="Logo Racines">
         <nav class="nav">
-    <ul class="menu">
-        <li><a href="index.html">Accueil</a></li>
+            <ul class="menu">
 
-        <li class="dropdown">
-            <a href="#">Lieux cultes</a>
-            <ul class="submenu">
-                <li><a href="mafate.html">Mafate</a></li>
-                <li><a href="cilaos.html">Cilaos</a></li>
-                <li><a href="volcans.html">Les volcans</a></li>
+                <li><a href="index.html" target="contenu">Accueil</a></li>
+
+                <li class="dropdown">
+                    <a href="#">Lieux cultes</a>
+                    <ul class="submenu">
+                        <li><a href="mafate.html"  target="contenu">Mafate</a></li>
+                        <li><a href="cilaos.html"  target="contenu">Cilaos</a></li>
+                        <li><a href="volcans.html" target="contenu">Les volcans</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Personnalités emblématiques</a>
+                    <ul class="submenu">
+                        <li><a href="olivier-levasseur.html" target="contenu">Olivier Levasseur</a></li>
+                        <li><a href="Desbassayns.html"       target="contenu">Madame Desbassayns</a></li>
+                        <li><a href="Garros.html"            target="contenu">Rolland Garros</a></li>
+                    </ul>
+                </li>
+
             </ul>
-        </li>
-
-        <li class="dropdown">
-        <a href="#">Personnalités emblématiques</a>
-            <ul class="submenu">
-                <li><a href="olivier-levasseur.html">Olivier Levasseur</a></li>
-                <li><a href="Desbassayns.html">Madame Desbassayns</a></li>
-                <li><a href="Garros.html">Rolland Garros</a></li>
-            </ul>
-        </li> 
-    </ul>
-    </nav>
+        </nav>
+    </header>
 
 
-</header>
-<main>
-    <p>
-    <section class="desbassyns-hero">
-  <div class="contenu">
-    <h1>Mme Desbassayns</h1>
-        <p>Madame Desbassayns, de son vrai nom Élisabeth Patrix, née en 1755, est l’une des figures
-        les plus marquantes, et les plus controversées, de l’histoire de l’île de La Réunion.
-        Mariée à Henri Paulin Panon Desbassayns, riche propriétaire terrien, elle devient à la fins grandes propriétaires 
-        du XVIIIᵉ siècle l’une des pluesclavagistes de l’île Bourbon.
-       Mariée à Henri Paulin Panon Desbassayns, riche propriétaire terrien, elle devient à la fins grandes propriétaires 
-       XVIIIᵉ siècle l’une des pluesclavagistes
-        </p>
-    </div>
-</main>
-<footer class="footer"> 
-    <h1 class="big-title2">Ce site retrace les grandes lignes de l’histoire de La Réunion, depuis l’île Bourbon jusqu’à aujourd’hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l’île intense.</h1>
-  <p>&copy; 2025 Racines de l’île Intense — Tous droits réservés.</p>
-  <p><a href="mentions-legales.html">Mentions légales</a> | <a href="contact.html">Contact</a></p>
-</footer>
+    <!-- ===========================
+         HÉRO
+         Photo de fond : desbassyns1.png (portrait)
+         Définie dans desbassayns.css
+    =========================== -->
+    <section class="hero">
+
+        <div class="hero-photo"></div>
+
+        <div class="hero-texte">
+            <span class="hero-etiquette">Personnalités emblématiques — L'île Bourbon au XIXe siècle</span>
+            <h1 class="hero-titre">Madame<br>Desbassayns</h1>
+            <p class="hero-sous-titre">
+                Élisabeth Desprez, dite Madame Desbassayns — la femme la plus puissante
+                et la plus controversée de l'histoire de La Réunion.
+            </p>
+            <div class="hero-chiffres">
+                <div>
+                    <span class="chiffre-nombre">1755</span>
+                    <span class="chiffre-legende">Année de naissance</span>
+                </div>
+                <div>
+                    <span class="chiffre-nombre">300+</span>
+                    <span class="chiffre-legende">Esclaves sur ses plantations</span>
+                </div>
+                <div>
+                    <span class="chiffre-nombre">1846</span>
+                    <span class="chiffre-legende">Année de son décès</span>
+                </div>
+            </div>
+        </div>
 
     </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         PRÉSENTATION GÉNÉRALE
+    =========================== -->
+    <section class="section-presentation">
+
+        <div class="badge">⚖️ Figure Controversée de l'Histoire</div>
+
+        <h2>La femme la plus puissante de l'île Bourbon</h2>
+
+        <p>
+            Élisabeth Desprez, née en 1755, est connue sous le nom de Madame Desbassayns
+            après son mariage avec Henri Paulin Panon Desbassayns, riche propriétaire terrien.
+            Elle devient rapidement l'une des personnalités les plus influentes — et les plus
+            redoutées — de l'île Bourbon.
+        </p>
+        <p>
+            Gérante de l'une des plus grandes fortunes sucrières de l'île, elle dirige
+            avec une poigne de fer ses vastes domaines de Saint-Gilles-les-Hauts.
+            Sa réussite économique colossale repose entièrement sur le travail forcé
+            de centaines d'esclaves, faisant d'elle une figure centrale du système
+            esclavagiste réunionnais.
+        </p>
+        <p>
+            Son héritage est profondément ambigu : d'un côté une femme d'affaires remarquable
+            pour son époque, de l'autre une exploiteuse impitoyable dont les excès de cruauté
+            envers les esclaves ont laissé des traces durables dans la mémoire collective
+            de l'île.
+        </p>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         GALERIE PHOTOS
+         desbassyns1.png : portrait à l'huile
+         desbassyns2.png : villa Desbassayns
+         desbassyns3.png : gravure de l'époque
+    =========================== -->
+    <section class="section-photos">
+
+        <span class="etiquette">En images</span>
+        <h2>Portraits d'une époque</h2>
+
+        <div class="galerie-photos">
+
+            <!-- Grande photo : la villa (2 colonnes) -->
+            <div class="carte-photo grande">
+                <img src="image/desbassyns2.png" alt="La villa Desbassayns à Saint-Gilles-les-Hauts">
+                <div class="legende">La villa Desbassayns à Saint-Gilles-les-Hauts — aujourd'hui musée ouvert au public</div>
+            </div>
+
+            <!-- Portrait à l'huile (1 colonne) -->
+            <div class="carte-photo portrait">
+                <img src="image/desbassyns1.png" alt="Portrait de Madame Desbassayns, huile sur toile">
+                <div class="legende">Portrait de Madame Desbassayns — huile sur toile</div>
+            </div>
+
+            <!-- Gravure ancienne (1 colonne) — avec filtre sépia -->
+            <div class="carte-photo sepia grande">
+                <img src="image/desbassyns3.png" alt="Gravure du domaine sucrier Desbassayns au XIXe siècle">
+                <div class="legende">Le domaine sucrier Desbassayns — gravure du XIXe siècle montrant les champs et la sucrerie</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         SECTION HISTOIRE
+         Deux blocs côte à côte
+    =========================== -->
+    <section class="section-histoire">
+
+        <div class="contenu-histoire">
+
+            <span class="etiquette">Histoire & Mémoire</span>
+
+            <div class="deux-colonnes">
+
+                <div>
+                    <h2>Une fortune bâtie sur l'esclavage</h2>
+                    <p>
+                        Le domaine Desbassayns est l'une des plus grandes sucreries de l'île Bourbon
+                        au XIXe siècle. Situé à Saint-Gilles-les-Hauts, il comprend des centaines
+                        d'hectares de canne à sucre, une sucrerie industrielle et les cases
+                        de centaines d'esclaves.
+                    </p>
+                    <p>
+                        À la mort de son mari, Madame Desbassayns prend seule les rênes du domaine
+                        et en fait l'une des exploitations les plus productives de l'île.
+                        Sa gestion rigoureuse — certains diraient impitoyable — lui permet
+                        d'accumuler une fortune colossale, faisant d'elle
+                        <span class="accent">la plus grande propriétaire terrienne de La Réunion</span>
+                        de son époque.
+                    </p>
+                    <p>
+                        Les témoignages de l'époque décrivent des conditions de travail extrêmement
+                        dures sur ses domaines. Plusieurs esclaves auraient subi des châtiments
+                        particulièrement sévères, ce qui lui valut une réputation de cruauté
+                        qui traversa les siècles.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Un héritage disputé</h2>
+                    <p>
+                        Après l'abolition de l'esclavage en 1848 — à laquelle elle ne survit pas,
+                        décédant deux ans avant en 1846 — le domaine Desbassayns entre dans l'histoire
+                        comme le symbole d'une époque révolue mais dont les cicatrices restent vives.
+                    </p>
+                    <p>
+                        La villa Desbassayns, visible dans notre galerie, est aujourd'hui
+                        classée monument historique. Elle abrite un musée qui présente
+                        la vie coloniale du XIXe siècle et la mémoire de l'esclavage à La Réunion.
+                        Chaque année, de nombreux Réunionnais s'y rendent pour commémorer
+                        <span class="accent">le 20 décembre 1848</span>, date de l'abolition sur l'île.
+                    </p>
+                    <p>
+                        Son personnage reste profondément ambigu dans la mémoire collective :
+                        femme d'exception dans un monde dominé par les hommes, mais au prix
+                        d'une exploitation humaine que l'histoire ne saurait minimiser.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         CITATION MIS EN AVANT
+    =========================== -->
+    <div class="citation-bloc">
+        <blockquote>
+            "Elle était redoutée de tous — maîtres et esclaves confondus.
+            Son nom seul faisait trembler le nord de l'île."
+        </blockquote>
+        <cite>— Témoignages de l'époque coloniale, île Bourbon, XIXe siècle</cite>
+    </div>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         4 CARTES — Faits historiques
+    =========================== -->
+    <section class="section-cartes">
+
+        <span class="etiquette">Repères historiques</span>
+        <h2>Ce qu'il faut retenir</h2>
+
+        <div class="grille-cartes">
+
+            <div class="carte-info">
+                <span class="carte-icone">🏡</span>
+                <h3>La Villa</h3>
+                <p>La villa Desbassayns à Saint-Gilles-les-Hauts est aujourd'hui un musée classé monument historique, ouvert au public et dédié à la mémoire de la période coloniale.</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">🌿</span>
+                <h3>La Sucrerie</h3>
+                <p>Le domaine comprenait l'une des sucreries les plus modernes de l'île. La canne à sucre était la richesse principale de Bourbon, cultivée par des milliers d'esclaves.</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">⛓️</span>
+                <h3>L'Esclavage</h3>
+                <p>Plus de 300 esclaves travaillaient sur ses domaines. L'abolition de l'esclavage à La Réunion intervient le 20 décembre 1848, commémoré chaque année comme fête nationale.</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">📖</span>
+                <h3>Mémoire Vivante</h3>
+                <p>Son histoire est aujourd'hui enseignée dans les écoles réunionnaises comme symbole de la période esclavagiste et de la nécessaire confrontation à ce passé douloureux.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+         PIED DE PAGE
+    =========================== -->
+    <footer class="footer">
+        <h1 class="big-title2">
+            Ce site retrace les grandes lignes de l'histoire de La Réunion,
+            depuis l'île Bourbon jusqu'à aujourd'hui. Découvrez les lieux symboliques,
+            les événements marquants et les personnages qui ont façonné l'île intense.
+        </h1>
+        <p>&copy; 2025 Racines de l'île Intense — Tous droits réservés.</p>
+        <p>
+            <a href="mentions-legales.html" target="contenu">Mentions légales</a>
+            |
+            <a href="contact.html" target="contenu">Contact</a>
+        </p>
+    </footer>
+
+
 </body>
 </html>

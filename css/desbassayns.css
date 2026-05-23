@@ -1,0 +1,457 @@
+/* =============================================
+   desbassayns.css — Styles de la page Madame Desbassayns
+   Projet : Racines de l'île Intense
+
+   STRUCTURE :
+   1. Variables
+   2. Reset & Body
+   3. Navigation
+   4. Héro
+   5. Séparateur
+   6. Section Présentation
+   7. Galerie Photos
+   8. Section Histoire
+   9. Citation
+   10. Cartes Infos
+   11. Footer
+   12. Responsive mobile
+============================================= */
+
+
+/* 1. VARIABLES — couleurs thème colonial / sépia */
+:root {
+    --brun:        #8b5e3c;   /* brun colonial */
+    --brun-clair:  #c49a6c;   /* beige doré */
+    --fond-noir:   #0d0905;   /* fond très sombre */
+    --fond-fonce:  #171009;   /* fond légèrement moins sombre */
+    --creme:       #f2ede6;   /* texte principal */
+    --gris-texte:  rgba(242, 237, 230, 0.65); /* texte secondaire */
+}
+
+
+/* 2. RESET & BODY */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--fond-noir);
+    color: var(--creme);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+
+/* 3. NAVIGATION — identique à toutes les autres pages */
+header.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 91);
+}
+
+header.header img { width: 150px; }
+
+nav.nav {
+    display: flex;
+    list-style: none;
+    width: 970px;
+    margin-left: 180px;
+}
+
+nav.nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav.nav ul.menu > li { position: relative; }
+
+nav.nav ul.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Sous-menu caché par défaut */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(12, 16, 70);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: none;
+    min-width: 200px;
+    z-index: 200;
+}
+
+.submenu li a { color: black; padding: 10px 14px; display: block; font-size: 20px; }
+.dropdown:hover .submenu { display: block; }
+.submenu li a:hover { background-color: #a01212; color: white; }
+
+
+/* 4. HÉRO — portrait de Mme Desbassayns en fond */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Portrait comme fond avec filtre sépia sombre */
+.hero-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('../image/desbassyns1.png');
+    background-size: cover;
+    background-position: center top;
+    z-index: 1;
+    /* Légère teinte sépia pour l'ambiance coloniale */
+    filter: sepia(30%) brightness(0.7);
+}
+
+/* Dégradé sombre en bas pour lire le texte */
+.hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    filter: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(13, 9, 5, 0.3) 0%,
+        rgba(13, 9, 5, 0.95) 100%
+    );
+}
+
+.hero-texte {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px 80px;
+    max-width: 900px;
+}
+
+.hero-etiquette {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--brun-clair);
+    display: block;
+    margin-bottom: 14px;
+}
+
+.hero-titre {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.9;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Sous-titre avec barre brune à gauche */
+.hero-sous-titre {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(242, 237, 230, 0.82);
+    border-left: 3px solid var(--brun-clair);
+    padding-left: 18px;
+    max-width: 580px;
+    margin-bottom: 36px;
+}
+
+.hero-chiffres { display: flex; gap: 50px; flex-wrap: wrap; }
+
+.chiffre-nombre {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brun-clair);
+    display: block;
+    line-height: 1;
+}
+
+.chiffre-legende {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texte);
+}
+
+
+/* 5. SÉPARATEUR */
+.separateur {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--brun-clair), transparent);
+    opacity: 0.3;
+}
+
+
+/* 6. SECTION PRÉSENTATION */
+.section-presentation {
+    padding: 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(139, 94, 60, 0.15);
+    border: 1px solid rgba(196, 154, 108, 0.35);
+    color: var(--brun-clair);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.section-presentation h2 {
+    font-size: 2rem;
+    margin-bottom: 28px;
+    color: var(--creme);
+}
+
+.section-presentation p {
+    font-size: 1.05rem;
+    color: var(--gris-texte);
+    margin-bottom: 20px;
+}
+
+
+/* 7. GALERIE PHOTOS */
+.section-photos {
+    padding: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Petite étiquette colorée */
+.etiquette {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--brun-clair);
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.section-photos h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    color: var(--creme);
+}
+
+/* Grille 3 colonnes */
+.galerie-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.carte-photo {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(196, 154, 108, 0.15);
+    background-color: var(--fond-fonce);
+}
+
+/* Grande photo = 2 colonnes */
+.carte-photo.grande { grid-column: span 2; }
+
+.carte-photo img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Pour le portrait : recadrage vers le haut */
+.carte-photo.portrait img {
+    object-position: center top;
+}
+
+/* Pour la gravure ancienne : rendu sépia */
+.carte-photo.sepia img {
+    filter: sepia(60%) contrast(1.1);
+}
+
+.carte-photo:hover img { transform: scale(1.04); }
+
+/* Légende */
+.legende {
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: var(--gris-texte);
+    font-style: italic;
+    border-top: 1px solid rgba(196, 154, 108, 0.1);
+}
+
+
+/* 8. SECTION HISTOIRE — deux colonnes */
+.section-histoire {
+    background-color: var(--fond-fonce);
+    padding: 80px;
+}
+
+.contenu-histoire {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.deux-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 16px;
+}
+
+.deux-colonnes h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--creme);
+    line-height: 1.2;
+}
+
+.deux-colonnes p {
+    color: var(--gris-texte);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+/* Texte mis en valeur */
+.accent { color: var(--brun-clair); font-weight: 500; }
+
+
+/* 9. CITATION */
+.citation-bloc {
+    padding: 70px 80px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.citation-bloc blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--brun-clair);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.citation-bloc cite {
+    font-size: 0.85rem;
+    color: var(--gris-texte);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* 10. CARTES INFOS */
+.section-cartes {
+    padding: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-cartes h2 {
+    font-size: 2rem;
+    margin-bottom: 36px;
+    color: var(--creme);
+    margin-top: 8px;
+}
+
+.grille-cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.carte-info {
+    background-color: var(--fond-fonce);
+    border: 1px solid rgba(196, 154, 108, 0.15);
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.carte-info:hover {
+    transform: translateY(-5px);
+    border-color: rgba(196, 154, 108, 0.5);
+}
+
+.carte-icone { font-size: 2rem; display: block; margin-bottom: 14px; }
+
+.carte-info h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brun-clair);
+    margin-bottom: 10px;
+}
+
+.carte-info p { font-size: 0.95rem; color: var(--gris-texte); }
+
+
+/* 11. FOOTER */
+footer.footer {
+    background-color: #080603;
+    border-top: 1px solid rgba(196, 154, 108, 0.15);
+    padding: 40px 80px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(242, 237, 230, 0.4);
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.footer .big-title2 {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(242, 237, 230, 0.5);
+    max-width: 800px;
+    margin: 0 auto 14px;
+    font-weight: normal;
+}
+
+footer a { color: var(--brun-clair); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+
+/* 12. RESPONSIVE — mobile */
+@media (max-width: 768px) {
+    .hero-titre            { font-size: 44px; }
+    .hero-texte            { padding: 0 24px 50px; }
+    .hero-chiffres         { flex-direction: column; gap: 20px; }
+
+    .galerie-photos        { grid-template-columns: 1fr; }
+    .carte-photo.grande    { grid-column: span 1; }
+    .deux-colonnes         { grid-template-columns: 1fr; gap: 30px; }
+    .grille-cartes         { grid-template-columns: 1fr; }
+
+    .carte-photo img       { height: 240px; }
+
+    .section-presentation,
+    .section-photos,
+    .section-histoire,
+    .section-cartes,
+    .citation-bloc         { padding: 50px 24px; }
+
+    footer.footer          { padding: 30px 24px; }
+
+    .citation-bloc blockquote { font-size: 1.4rem; }
+}

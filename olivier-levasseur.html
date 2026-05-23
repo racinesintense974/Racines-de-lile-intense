@@ -2,59 +2,300 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Olivier Levasseur</title>
-    <link rel="stylesheet" href="css/goat.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivier Levasseur "La Buse" — Racines</title>
+
+    <!-- Le fichier CSS est dans le dossier css/ -->
+    <link rel="stylesheet" href="css/olivier.css">
+
 </head>
 <body>
 
-<body>
-    <section class="top-page">
-        <header class="header"> 
-            <img src="image/logo22.png" alt="logo du site">
+    <!-- ===========================
+         NAVIGATION
+         Identique à mafate, volcans, cilaos
+    =========================== -->
+    <header class="header">
+        <img src="image/logo22.png" alt="Logo Racines">
         <nav class="nav">
-    <ul class="menu">
-        <li><a href="index.html">Accueil</a></li>
+            <ul class="menu">
 
-        <li class="dropdown">
-            <a href="#">Lieux cultes</a>
-            <ul class="submenu">
-                <li><a href="mafate.html">Mafate</a></li>
-                <li><a href="cilaos.html">Cilaos</a></li>
-                <li><a href="volcans.html">Les volcans</a></li>
+                <li><a href="index.html" target="contenu">Accueil</a></li>
+
+                <li class="dropdown">
+                    <a href="#">Lieux cultes</a>
+                    <ul class="submenu">
+                        <li><a href="mafate.html"  target="contenu">Mafate</a></li>
+                        <li><a href="cilaos.html"  target="contenu">Cilaos</a></li>
+                        <li><a href="volcans.html" target="contenu">Les volcans</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Personnalités emblématiques</a>
+                    <ul class="submenu">
+                        <li><a href="olivier-levasseur.html" target="contenu">Olivier Levasseur</a></li>
+                        <li><a href="Desbassayns.html"       target="contenu">Madame Desbassayns</a></li>
+                        <li><a href="Garros.html"            target="contenu">Rolland Garros</a></li>
+                    </ul>
+                </li>
+
             </ul>
-        </li>
+        </nav>
+    </header>
 
-        <li class="dropdown">
-        <a href="#">Personnalités emblématiques</a>
-            <ul class="submenu">
-                <li><a href="olivier-levasseur.html">Olivier Levasseur</a></li>
-                <li><a href="Desbassayns.html">Madame Desbassayns</a></li>
-                <li><a href="Garros.html">Rolland Garros</a></li>
-            </ul>
-        </li> 
 
-    </ul>
-    </nav>
-</header>
+    <!-- ===========================
+         HÉRO
+         Le portrait de La Buse (labuse1.png)
+         est utilisé comme fond dans olivier.css
+         via .hero-photo { background-image }
+    =========================== -->
+    <section class="hero">
 
-<section class="mafate-hero">
-  <div class="contenu">
-    <h1>Olivier Levasseur</h1>
-    <p>Olivier Levasseur, surnommé La Buse, est l’un des pirates les plus célèbres de l’océan Indien au XVIIIᵉ siècle. Son histoire est étroitement liée à l’île de La Réunion et au mythe de son trésor disparu.
-Né vers 1688, probablement en France, Olivier Levasseur commence sa carrière comme corsaire, c’est-à-dire un marin autorisé par un État à attaquer les navires ennemis. À la fin des guerres européennes, de nombreux corsaires deviennent pirates, et Levasseur suit cette voie.
-Il opère principalement dans l’océan Indien, attaquant des navires marchands riches reliant l’Europe aux Indes. En 1721, il participe à l’une des plus grandes prises de l’histoire de la piraterie : le pillage d’un navire portugais chargé d’or, d’argent, de bijoux et d’objets religieux d’une valeur immense.
-Après plusieurs années de piraterie, Olivier Levasseur accepte une amnistie proposée par les autorités françaises, mais celle-ci est finalement annulée. Il est capturé à Sainte-Marie de Madagascar puis transféré à l’île Bourbon (ancien nom de La Réunion).
-Le 7 juillet 1730, Olivier Levasseur est pendu à Saint-Paul. Selon la légende, juste avant de mourir, il aurait jeté un papier dans la foule en déclarant :
-« Mon trésor à qui saura le prendre ! »
-Ce document, appelé le cryptogramme de La Buse, aurait contenu des indices menant à son fabuleux trésor, jamais retrouvé à ce jour. Ce mystère alimente encore aujourd’hui les recherches et les légendes autour de son nom.
-Olivier Levasseur reste ainsi une figure emblématique de l’histoire réunionnaise, mêlant faits historiques et imaginaire pirate.</p> 
-  </div>
-</section>
-<footer class="footer"> 
-    <h1 class="big-title2">Ce site retrace les grandes lignes de l’histoire de La Réunion, depuis l’île Bourbon jusqu’à aujourd’hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l’île intense.</h1>
-  <p>&copy; 2025 Racines de l’île Intense — Tous droits réservés.</p>
-  <p><a href="mentions-legales.html">Mentions légales</a> | <a href="contact.html">Contact</a></p>
-</footer>
+        <div class="hero-photo"></div>
+
+        <div class="hero-texte">
+            <span class="hero-etiquette">Personnalités emblématiques — L'âge d'or de la piraterie</span>
+            <h1 class="hero-titre">Olivier<br>Levasseur</h1>
+            <p class="hero-sous-titre">
+                Dit "La Buse" — le plus célèbre pirate de l'océan Indien,
+                dont le trésor codé hante encore les ravines de l'île.
+            </p>
+            <div class="hero-chiffres">
+                <div>
+                    <span class="chiffre-nombre">1721</span>
+                    <span class="chiffre-legende">Prise de La Vierge du Cap</span>
+                </div>
+                <div>
+                    <span class="chiffre-nombre">17 lignes</span>
+                    <span class="chiffre-legende">Du cryptogramme mystère</span>
+                </div>
+                <div>
+                    <span class="chiffre-nombre">1730</span>
+                    <span class="chiffre-legende">Pendaison à Saint-Paul</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         PRÉSENTATION GÉNÉRALE
+    =========================== -->
+    <section class="section-presentation">
+
+        <div class="badge-pirate">☠️ Flibustier Légendaire</div>
+
+        <h2>Le fléau des mers du Sud</h2>
+
+        <p>
+            Olivier Levasseur, né vers 1688 probablement à Calais, commence sa carrière comme
+            corsaire du Roi pendant la guerre de Succession d'Espagne. Une fois la paix signée,
+            il choisit de hisser le pavillon noir et devient "La Buse" — un surnom dû à la vitesse
+            et la brutalité avec laquelle il fond sur ses proies, à l'image du rapace.
+        </p>
+        <p>
+            Après avoir écumé les Caraïbes et les côtes africaines, il met le cap sur l'océan Indien,
+            zone stratégique où croisent les riches navires des Compagnies des Indes orientales.
+            C'est là, entre Madagascar et l'île Bourbon (ancienne Réunion), que son destin
+            va définitivement basculer dans la légende.
+        </p>
+        <p>
+            Arrêté à Sainte-Marie de Madagascar après des années de traque, il est conduit à
+            Saint-Paul pour y être jugé et pendu le 7 juillet 1730, laissant derrière lui
+            l'une des énigmes les plus fascinantes de l'histoire maritime mondiale.
+        </p>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         GALERIE PHOTOS
+         3 vraies images :
+         - labuse1.png : portrait dessiné de La Buse
+         - labuse2.png : tombe au cimetière marin de Saint-Paul
+         - labuse3.png : le cryptogramme de 17 lignes
+    =========================== -->
+    <section class="section-photos">
+
+        <span class="etiquette">En images</span>
+        <h2>Sur les traces de La Buse</h2>
+
+        <div class="galerie-photos">
+
+            <!-- Portrait (grande photo, 2 colonnes) -->
+            <div class="carte-photo grande">
+                <img src="image/labuse2.png" alt="La tombe d'Olivier Levasseur au Cimetière Marin de Saint-Paul">
+                <div class="legende">La tombe de La Buse au Cimetière Marin de Saint-Paul — "Pirate des mers du Sud"</div>
+            </div>
+
+            <!-- Portrait en noir et blanc -->
+            <div class="carte-photo portrait">
+                <img src="image/labuse1.png" alt="Portrait d'Olivier Levasseur dit La Buse, capitaine de corsaire">
+                <div class="legende">Olivier Levasseur dit "La Buse" — Capitaine de corsaire</div>
+            </div>
+
+            <!-- Le cryptogramme -->
+            <div class="carte-photo">
+                <img src="image/labuse3.png" alt="Le cryptogramme mystérieux de 17 lignes d'Olivier Levasseur">
+                <div class="legende">Le cryptogramme de 17 lignes — jamais déchiffré à ce jour</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         SECTION HISTOIRE
+         Deux blocs côte à côte
+    =========================== -->
+    <section class="section-histoire">
+
+        <div class="contenu-histoire">
+
+            <span class="etiquette">Histoire & Mythe</span>
+
+            <div class="deux-colonnes">
+
+                <div>
+                    <h2>Le casse du siècle : La Vierge du Cap</h2>
+                    <p>
+                        En avril 1721, associé au pirate anglais John Taylor, La Buse réalise
+                        la prise la plus fructueuse de toute l'histoire de la piraterie.
+                        Au large de l'île Bourbon, ils s'emparent de la
+                        <span class="accent">Nossa Senhora do Cabo</span> — La Vierge du Cap —
+                        un formidable navire portugais affaibli par une tempête.
+                    </p>
+                    <p>
+                        À son bord se trouvent le vice-roi des Indes orientales et l'archevêque
+                        de Goa, mais surtout une cargaison phénoménale : rivières de diamants,
+                        lingots d'or, bijoux sertis de pierres précieuses, et la mythique
+                        <span class="accent">Croix d'or de Goa</span>, pesant plus de 100 kilos.
+                        Un butin estimé aujourd'hui à plusieurs milliards d'euros.
+                    </p>
+                    <p>
+                        Après ce coup de maître, les deux pirates se séparent leur fortune.
+                        Tandis que Taylor part aux Caraïbes, La Buse reste dans l'océan Indien,
+                        tentant d'obtenir une grâce royale qui lui sera finalement refusée.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Le secret du cryptogramme</h2>
+                    <p>
+                        Le 7 juillet 1730, sur la plage de Saint-Paul, Olivier Levasseur est
+                        conduit à l'échafaud devant une foule nombreuse. Selon la légende,
+                        juste avant que la corde ne lui soit passée au cou, il arracha un
+                        parchemin de sa chemise et le lança dans la foule en criant :
+                        <span class="accent">"Mes trésors à qui saura comprendre !"</span>
+                    </p>
+                    <p>
+                        Ce document — visible dans notre galerie — contient 17 lignes de
+                        symboles codés utilisant l'alphabet dit "Pigpen" ou "Parc à cochons",
+                        un code géométrique populaire chez les francs-maçons et flibustiers.
+                        Malgré des siècles de recherches acharnées, le message n'a jamais
+                        été totalement déchiffré.
+                    </p>
+                    <p>
+                        La tombe de La Buse au Cimetière Marin de Saint-Paul est devenue
+                        un lieu de pèlerinage pour les chasseurs de trésor du monde entier.
+                        Son canon et la plaque "Pirate des mers du Sud" attirent chaque année
+                        des milliers de visiteurs fascinés par le mystère.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         CITATION MIS EN AVANT
+    =========================== -->
+    <div class="citation-bloc">
+        <blockquote>
+            "Mes trésors à qui saura comprendre !"
+        </blockquote>
+        <cite>— Dernières paroles d'Olivier Levasseur avant sa pendaison à Saint-Paul, 7 juillet 1730</cite>
+    </div>
+
+
+    <div class="separateur"></div>
+
+
+    <!-- ===========================
+         4 CARTES — Héritage & Faits
+    =========================== -->
+    <section class="section-cartes">
+
+        <span class="etiquette">Repères historiques</span>
+        <h2>L'héritage de La Buse</h2>
+
+        <div class="grille-cartes">
+
+            <div class="carte-info">
+                <span class="carte-icone">☠️</span>
+                <h3>Le Pavillon Noir</h3>
+                <p>La Buse changeait souvent de pavillon pour tromper ses cibles — battant parfois les couleurs anglaises, françaises ou portugaises avant de hisser son drapeau de combat.</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">🪦</span>
+                <h3>Le Cimetière Marin</h3>
+                <p>À Saint-Paul, sa tombe ornée d'un canon et d'une croix est l'une des plus visitées de l'île. Une plaque noire indique sobrement : "Olivier Levasseur dit La Buse — Pirate des mers du Sud".</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">📜</span>
+                <h3>Le Code Pigpen</h3>
+                <p>Le cryptogramme utilise le chiffre géométrique "Pigpen", très répandu chez les francs-maçons du XVIIIe siècle. Plusieurs tentatives de déchiffrement ont donné des résultats partiels, mais aucune piste n'a mené au trésor.</p>
+            </div>
+
+            <div class="carte-info">
+                <span class="carte-icone">💰</span>
+                <h3>Chasseurs de Trésor</h3>
+                <p>Des centaines de chercheurs du monde entier ont tenté leur chance dans les ravines de La Réunion et aux Seychelles. Parmi eux, le célèbre "Bibique" (Joseph Tipveau), qui a consacré toute sa vie à cette quête.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+         PIED DE PAGE
+    =========================== -->
+    <footer class="footer">
+        <h1 class="big-title2">
+            Ce site retrace les grandes lignes de l'histoire de La Réunion,
+            depuis l'île Bourbon jusqu'à aujourd'hui. Découvrez les lieux symboliques,
+            les événements marquants et les personnages qui ont façonné l'île intense.
+        </h1>
+        <p>&copy; 2025 Racines de l'île Intense — Tous droits réservés.</p>
+        <p>
+            <a href="mentions-legales.html" target="contenu">Mentions légales</a>
+            |
+            <a href="contact.html" target="contenu">Contact</a>
+        </p>
+    </footer>
+
+
 </body>
 </html>
-

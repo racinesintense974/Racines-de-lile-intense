@@ -1,0 +1,658 @@
+/* =============================================
+   garros_new.css — Styles de la page Roland Garros
+   Projet : Racines de l'île Intense
+
+   STRUCTURE DU FICHIER :
+   1. Variables (couleurs)
+   2. Reset
+   3. Body
+   4. Navigation
+   5. Héro (grande bannière plein écran)
+   6. Séparateur
+   7. Section Présentation
+   8. Galerie photos
+   9. Frise chronologique
+   10. Section Histoire (2 colonnes)
+   11. Citation
+   12. Cartes Infos
+   13. Section Héritage
+   14. Footer
+   15. Responsive (téléphone)
+============================================= */
+
+
+/* =============================================
+   1. VARIABLES CSS
+   Palette inspirée de l'aviation et du ciel :
+   bleu nuit, bleu acier, or/jaune pour les
+   éléments mis en valeur (médailles, exploits)
+============================================= */
+:root {
+    --bleu-nuit:   #0d1a2e;   /* fond très sombre, bleu nuit */
+    --bleu-acier:  #1e3a5f;   /* bleu acier profond */
+    --bleu-ciel:   #4a8ab5;   /* bleu ciel d'aviation */
+    --or:          #c8a040;   /* or des médailles et décorations */
+    --or-clair:    #e8c060;   /* or plus clair pour les accents */
+    --fond-noir:   #080d14;   /* fond de page très sombre */
+    --fond-fonce:  #111c2a;   /* fond légèrement moins sombre */
+    --blanc-casse: #f0ede8;   /* texte principal */
+    --gris-texte:  rgba(240, 237, 232, 0.65); /* texte secondaire */
+}
+
+
+/* =============================================
+   2. RESET
+   Supprime toutes les marges et paddings
+   par défaut du navigateur
+============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =============================================
+   3. BODY — Style général de la page
+============================================= */
+body {
+    background-color: var(--fond-noir);
+    color: var(--blanc-casse);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden; /* pas de défilement horizontal */
+}
+
+
+/* =============================================
+   4. NAVIGATION
+   Identique à toutes les pages du site
+============================================= */
+
+/* En-tête : logo + nav côte à côte (flexbox) */
+header.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 91); /* bleu marine */
+}
+
+header.header img {
+    width: 150px;
+}
+
+/* Conteneur de navigation */
+nav.nav {
+    display: flex;
+    list-style: none;
+    width: 970px;
+    margin-left: 180px;
+}
+
+/* Liste horizontale du menu principal */
+nav.nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+/* position: relative obligatoire pour les sous-menus */
+nav.nav ul.menu > li {
+    position: relative;
+}
+
+nav.nav ul.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Sous-menu : caché par défaut */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(12, 16, 70);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: none;
+    min-width: 200px;
+    z-index: 200;
+}
+
+.submenu li a {
+    color: black;
+    padding: 10px 14px;
+    display: block;
+    font-size: 20px;
+}
+
+/* Affiche le sous-menu au survol du parent .dropdown */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: var(--bleu-acier);
+    color: white;
+}
+
+
+/* =============================================
+   5. HÉRO
+   Section plein écran (100vh).
+   Texte positionné en bas (justify-content: flex-end).
+   La photo de fond est une div séparée pour
+   pouvoir ajouter un dégradé par-dessus (::after)
+============================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Photo de fond : couvre tout l'espace */
+.hero-photo {
+    position: absolute;
+    inset: 0; /* top, right, bottom, left = 0 */
+    background-image: url('../image/garros1.jpg'); /* Portrait de Roland Garros */
+    background-size: cover;
+    background-position: center top; /* cadre sur le visage */
+}
+
+/* Dégradé par-dessus la photo pour lisibilité du texte */
+.hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 13, 20, 0.2) 0%,    /* presque transparent en haut */
+        rgba(8, 13, 20, 0.92) 100%  /* très sombre en bas */
+    );
+}
+
+/* Bloc texte du héro au-dessus de la photo */
+.hero-texte {
+    position: relative;
+    z-index: 10; /* passe au-dessus du dégradé */
+    padding: 0 80px 80px;
+    max-width: 950px;
+}
+
+/* Petite étiquette */
+.hero-etiquette {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--or-clair);
+    display: block;
+    margin-bottom: 14px;
+    opacity: 0.9;
+}
+
+/* Grand titre */
+.hero-titre {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.9;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Sous-titre avec barre colorée à gauche */
+.hero-sous-titre {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(240, 237, 232, 0.8);
+    border-left: 3px solid var(--or);
+    padding-left: 18px;
+    max-width: 580px;
+}
+
+/* Conteneur des 3 chiffres clés */
+.hero-chiffres {
+    display: flex;
+    gap: 50px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+/* Grand nombre en doré */
+.chiffre-nombre {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--or-clair);
+    display: block;
+    line-height: 1;
+}
+
+/* Texte sous le nombre */
+.chiffre-legende {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   6. SÉPARATEUR
+   Ligne décorative entre les sections
+   Dégradé transparent → or → transparent
+============================================= */
+.separateur {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--or), transparent);
+    opacity: 0.35;
+}
+
+
+/* =============================================
+   7. SECTION PRÉSENTATION
+   Bordure colorée à gauche, fond dégradé
+============================================= */
+.section-presentation {
+    background: linear-gradient(135deg, #0d1e30, var(--fond-noir));
+    border-left: 5px solid var(--bleu-ciel);
+    padding: 60px 80px;
+}
+
+.section-presentation h2 {
+    font-size: 1.8rem;
+    color: var(--or-clair);
+    margin-bottom: 16px;
+}
+
+.section-presentation p {
+    color: rgba(240, 237, 232, 0.82);
+    max-width: 800px;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+}
+
+/* Badge "Pionnier de l'aviation" */
+.badge-epoque {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bleu-acier);
+    color: white;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border: 1px solid var(--or);
+}
+
+
+/* =============================================
+   8. GALERIE PHOTOS
+   Grille 3 colonnes.
+   Classe "grande" = 2 colonnes (grid-column: span 2)
+============================================= */
+.section-photos {
+    padding: 70px 80px;
+}
+
+.section-photos h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-top: 8px;
+    margin-bottom: 28px;
+}
+
+/* Petite étiquette colorée */
+.etiquette {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--or-clair);
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* Grille 3 colonnes */
+.galerie-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* Carte photo : coins arrondis, overflow pour couper l'image */
+.carte-photo {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+/* L'image remplit la carte sans se déformer */
+.carte-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom doux au survol */
+.carte-photo:hover img {
+    transform: scale(1.07);
+}
+
+/* Légende en bas sur fond dégradé */
+.carte-photo .legende {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 16px 14px;
+    background: linear-gradient(to top, rgba(8, 13, 20, 0.92), transparent);
+    color: white;
+    font-size: 0.88rem;
+    font-style: italic;
+}
+
+/* Photo "grande" = 2 colonnes */
+.carte-photo.grande {
+    grid-column: span 2;
+}
+
+
+/* =============================================
+   9. FRISE CHRONOLOGIQUE
+   Les grands moments de la vie de Roland Garros
+   Grille auto-adaptative de cartes
+============================================= */
+.section-timeline {
+    padding: 70px 80px;
+    background: linear-gradient(to right, #0a1622, var(--fond-noir));
+}
+
+.section-timeline h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+/* Grille auto : s'adapte à la largeur disponible */
+.grille-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+/* Chaque étape de la frise */
+.timeline-etape {
+    background: rgba(74, 138, 181, 0.07);
+    border: 1px solid rgba(74, 138, 181, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.timeline-etape:hover {
+    border-color: var(--or);
+    background: rgba(200, 160, 64, 0.08);
+}
+
+/* La date en haut, en doré */
+.timeline-date {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--or-clair);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+.timeline-etape p {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   10. SECTION HISTOIRE — 2 colonnes
+   Textes détaillés, même structure que mafate.css
+============================================= */
+.section-histoire {
+    background: linear-gradient(to right, #0a1622, var(--fond-noir));
+    padding: 70px 80px;
+}
+
+.section-histoire .contenu-histoire {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grille 2 colonnes égales */
+.deux-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.deux-colonnes h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-bottom: 22px;
+    line-height: 1.2;
+}
+
+.deux-colonnes p {
+    color: var(--gris-texte);
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+
+/* =============================================
+   11. CITATION
+   Bloc centré avec grande citation italique
+============================================= */
+.citation-bloc {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.15), rgba(200, 160, 64, 0.04));
+    border-top: 2px solid rgba(200, 160, 64, 0.3);
+    border-bottom: 2px solid rgba(200, 160, 64, 0.3);
+    padding: 50px 80px;
+    text-align: center;
+}
+
+.citation-bloc blockquote {
+    font-size: 1.7rem;
+    font-style: italic;
+    color: var(--blanc-casse);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Source de la citation */
+.citation-bloc cite {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--or-clair);
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+
+/* =============================================
+   12. CARTES INFOS
+   6 faits remarquables, grille auto
+============================================= */
+.section-cartes {
+    padding: 70px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-cartes h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+/* Grille auto-adaptative */
+.grille-cartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+/* Chaque carte */
+.carte-info {
+    background: linear-gradient(135deg, var(--fond-fonce), var(--fond-noir));
+    border: 1px solid rgba(74, 138, 181, 0.15);
+    border-radius: 10px;
+    padding: 26px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Légère élévation au survol */
+.carte-info:hover {
+    transform: translateY(-5px);
+    border-color: var(--or);
+}
+
+.carte-icone {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Titre de la carte en petites majuscules */
+.carte-info h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--or-clair);
+    margin-bottom: 10px;
+}
+
+.carte-info p {
+    font-size: 0.95rem;
+    color: var(--gris-texte);
+}
+
+
+/* =============================================
+   13. SECTION HÉRITAGE
+   Même structure que les sections histoire :
+   2 colonnes côte à côte
+============================================= */
+.section-heritage {
+    background: linear-gradient(to right, var(--fond-fonce), var(--fond-noir));
+    padding: 70px 80px;
+    max-width: 100%;
+}
+
+.section-heritage .deux-colonnes {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-heritage h2 {
+    font-size: 2rem;
+    color: var(--blanc-casse);
+    margin-bottom: 22px;
+}
+
+.section-heritage p {
+    color: var(--gris-texte);
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+/* Mot mis en valeur en doré */
+.accent {
+    color: var(--or-clair);
+}
+
+
+/* =============================================
+   14. FOOTER — Pied de page
+   Identique à toutes les pages du site
+============================================= */
+footer.footer {
+    background-color: #04080d;
+    border-top: 1px solid rgba(74, 138, 181, 0.15);
+    padding: 40px 80px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(240, 237, 232, 0.4);
+    box-sizing: border-box;
+}
+
+/* Texte descriptif du site en italique */
+.footer .big-title2 {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(240, 237, 232, 0.5);
+    max-width: 800px;
+    margin: 0 auto 14px;
+    font-weight: normal;
+}
+
+footer a {
+    color: var(--or-clair);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================================
+   15. RESPONSIVE — Adaptation mobile
+   S'applique uniquement si l'écran < 768px
+============================================= */
+@media (max-width: 768px) {
+
+    /* Titre héro plus petit sur mobile */
+    .hero-titre         { font-size: 44px; }
+
+    /* Moins de padding sur les côtés */
+    .hero-texte         { padding: 0 24px 50px; }
+
+    /* Chiffres en colonne */
+    .hero-chiffres      { flex-wrap: wrap; gap: 24px; }
+
+    /* Toutes les grilles passent en 1 colonne */
+    .deux-colonnes      { grid-template-columns: 1fr; }
+    .galerie-photos     { grid-template-columns: 1fr; }
+    .carte-photo.grande { grid-column: span 1; }
+
+    /* Réduction des paddings */
+    .section-photos,
+    .section-presentation,
+    .section-histoire,
+    .section-timeline,
+    .section-cartes,
+    .section-heritage,
+    .citation-bloc      { padding: 40px 24px; }
+
+    footer.footer       { padding: 30px 24px; }
+}
