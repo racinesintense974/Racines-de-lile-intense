@@ -1,0 +1,339 @@
+
+* 
+
+body {
+    margin: 0 auto;
+    
+}
+
+header.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 91);                    /* Entête */
+    margin: 0;
+    
+}
+
+header.header img {
+    width: 150px;
+}
+
+
+
+
+
+
+section.top-page {
+    background: url('../image/gptidr2.png');
+    background-size: cover;
+    height: 136vh;
+    padding: 0px;
+}
+/* page de bienvenue (landing page) */
+.big-title {
+    color: rgb(255, 255, 255);
+    font-size: 27px;
+    padding: 55px 360px;
+    background-color: rgba(0, 0, 0, 0.323);
+    margin-top: 0;
+    
+    
+
+}
+html, body {
+  height: 100%;           /* Nécessaire pour que le conteneur remplisse l'écran */
+  margin: 0;
+  padding: 0;
+}
+
+.conteneur-central {
+  display: flex;
+  justify-content: center;      /* centre horizontalement */
+  align-items: center;          /* centre verticalement */
+  height: 70vh;                /* 100% de la hauteur de l'écran */
+}
+
+/* La galerie contient les images */
+.galerie-images {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+   position: relative;
+    top: -50px;
+
+}
+
+.galerie-images img {
+  width: 350px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.galerie-images img:hover {
+  transform: scale(1.05);
+}
+
+.big-title2 {
+    color: black;
+    font-size: 20px;
+    padding: 10px 50px;
+}
+/* Sous-page */
+.footer {
+    width: 100%;
+  background-color: #d0caca;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  border-top: 1px solid #ccc;
+  margin-top: 90px;
+   box-sizing: border-box;
+
+}
+
+.footer a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* menu de navigation */
+
+nav.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 970px;
+    margin-left: 200px;
+font-size: 30px;
+}
+
+
+nav.nav li {
+    color: white;
+}
+
+
+
+/* ===== MENU DEROULANT LIEUX-CULTES ===== */
+
+nav.nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;           /* espace entre les éléments */
+    margin: 0;
+    padding: 0;          
+}
+
+nav.nav ul.menu > li {
+    position: relative;
+}
+
+nav.nav ul.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* Sous-menu caché */
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: rgb(12, 16, 70);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: none;
+    min-width: 180px;
+    z-index: 10;
+}
+
+/* Liens du sous-menu */
+.submenu li a {
+    color: black;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+}
+
+/* Apparition au survol */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Effet hover */
+.submenu li a:hover {
+    background-color: #a01212;
+}
+
+
+
+
+/* =============================================
+   RESPONSIVE MOBILE — EN-TÊTE & NAVIGATION
+   S'applique sur les écrans < 768px (téléphone)
+============================================= */
+
+/* Bouton hamburger : caché sur PC */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px 14px;
+    margin-left: auto;
+    margin-right: 10px;
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+    /* --- LOGO --- */
+    header.header img {
+        width: 90px;
+    }
+
+    /* --- BOUTON HAMBURGER visible sur mobile --- */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* --- EN-TÊTE : logo + hamburger sur 1 ligne --- */
+    header.header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 6px 0;
+    }
+
+    /* --- NAVIGATION cachée par défaut --- */
+    nav.nav {
+        width: 100%;
+        margin-left: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        background-color: rgb(20, 20, 75);
+    }
+
+    nav.nav.ouvert {
+        max-height: 500px;
+    }
+
+    /* --- MENU VERTICAL --- */
+    nav.nav ul.menu {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        padding: 6px 0;
+    }
+
+    nav.nav ul.menu a {
+        font-size: 17px;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+    }
+
+    /* --- SOUS-MENUS --- */
+    .submenu {
+        position: static !important;
+        display: none !important;
+        background: rgba(10, 10, 60, 0.7) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        min-width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    .dropdown.ouvert .submenu {
+        display: block !important;
+    }
+
+    .submenu li a {
+        font-size: 15px !important;
+        padding: 10px 36px !important;
+        color: rgba(255, 255, 255, 0.82) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .submenu li a:hover {
+        background-color: #a01212 !important;
+        color: white !important;
+    }
+
+    /* =============================================
+       PAGE D'ACCUEIL — CORRECTIONS MOBILE
+    ============================================= */
+
+    /* Section hero : hauteur auto au lieu de 136vh fixe */
+    section.top-page {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Titre principal : supprime le padding horizontal excessif
+       et adapte la taille de police */
+    .big-title {
+        font-size: 18px;
+        padding: 24px 20px;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    /* Conteneur central : hauteur auto, pas de hauteur fixe */
+    .conteneur-central {
+        height: auto;
+        padding: 30px 16px;
+        flex: 1;
+    }
+
+    /* Galerie : colonne unique, images pleine largeur */
+    .galerie-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        top: 0; /* annule le top: -50px qui décale les images */
+        position: static;
+    }
+
+    .galerie-images img {
+        width: 100%;
+        max-width: 340px;
+        border-radius: 20px;
+    }
+
+    /* Footer texte */
+    .big-title2 {
+        font-size: 15px;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    .footer {
+        margin-top: 20px;
+        padding: 20px 16px;
+    }
+}
