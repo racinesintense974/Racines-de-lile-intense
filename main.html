@@ -53,6 +53,51 @@ iframe#contenu {
             height: calc(100vh - 70px);
             display: block;
         }
+
+        /* =============================================
+           RESPONSIVE MOBILE — PLAYER & IFRAME
+           S'applique sur écrans < 768px (téléphone)
+        ============================================= */
+        @media (max-width: 768px) {
+
+            /* L'iframe prend toute la hauteur moins le player plus petit */
+            iframe#contenu {
+                height: calc(100vh - 110px); /* player plus haut sur mobile = 2 lignes */
+            }
+
+            /* Player en 2 lignes sur mobile pour éviter l'écrasement */
+            .player-fixe {
+                flex-wrap: wrap;         /* les éléments passent à la ligne */
+                padding: 8px 10px;
+                gap: 8px;
+                justify-content: center;
+            }
+
+            /* Titre de la chanson : pleine largeur sur sa propre ligne */
+            #titre-chanson {
+                width: 100%;
+                text-align: center;
+                font-size: 13px;
+                min-width: unset;
+                order: -1;               /* passe en premier */
+            }
+
+            /* Boutons lecture : taille réduite mais cliquables */
+            .player-fixe button {
+                padding: 6px 10px;
+                font-size: 14px;
+            }
+
+            /* Barres de progression et volume : s'adaptent à la place disponible */
+            .player-fixe input[type="range"] {
+                width: 80px;             /* plus petite que les 120px du PC */
+            }
+
+            /* L'emoji 🎧 : caché pour gagner de la place */
+            .player-fixe > span:first-child {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>

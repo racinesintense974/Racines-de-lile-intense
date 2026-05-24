@@ -178,3 +178,113 @@ nav.nav ul.menu a {
 }
 
 
+
+
+/* =============================================
+   RESPONSIVE MOBILE — EN-TÊTE & NAVIGATION
+   S'applique sur les écrans < 768px (téléphone)
+   On ne touche qu'au header et au menu —
+   le reste de la page n'est pas modifié ici.
+============================================= */
+@media (max-width: 768px) {
+
+    /* --- LOGO --- */
+    header.header img {
+        width: 90px; /* réduit le logo pour gagner de la place */
+    }
+
+    /* --- BOUTON HAMBURGER ---
+       On crée 3 barres avec un élément HTML vide.
+       Il faut ajouter dans le HTML :
+       <button class="menu-toggle" onclick="toggleMenu()">
+           <span></span><span></span><span></span>
+       </button>                                      */
+    .menu-toggle {
+        display: flex;         /* visible seulement sur mobile */
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 10px 14px;
+        margin-left: auto;
+        margin-right: 10px;
+        background: none;
+        border: none;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* --- EN-TÊTE : logo + hamburger sur 1 ligne --- */
+    header.header {
+        flex-wrap: wrap;       /* permet au nav de passer à la ligne */
+        justify-content: space-between;
+        padding: 6px 0;
+    }
+
+    /* --- NAVIGATION cachée par défaut ---
+       Elle s'affiche quand on lui ajoute la classe "ouvert" via JS */
+    nav.nav {
+        width: 100%;           /* prend toute la largeur */
+        margin-left: 0;
+        max-height: 0;         /* fermé = hauteur 0 */
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        background-color: rgb(20, 20, 75); /* légèrement différent pour distinction */
+    }
+
+    /* Classe ajoutée par JS au clic sur le hamburger */
+    nav.nav.ouvert {
+        max-height: 500px;     /* ouvert = assez grand pour tout le menu */
+    }
+
+    /* --- MENU VERTICAL --- */
+    nav.nav ul.menu {
+        flex-direction: column; /* empile les items verticalement */
+        gap: 0;
+        width: 100%;
+        padding: 6px 0;
+    }
+
+    nav.nav ul.menu a {
+        font-size: 17px;        /* taille lisible sur mobile */
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+    }
+
+    /* --- SOUS-MENU : toujours visible après le parent ---
+       Sur mobile on ne peut pas "hover", donc on force
+       l'affichage quand le parent a la classe "ouvert" */
+    .submenu {
+        position: static !important;   /* plus de position absolute */
+        display: none !important;
+        background: rgba(10, 10, 60, 0.7) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        min-width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    /* Classe ajoutée par JS quand on clique sur un dropdown */
+    .dropdown.ouvert .submenu {
+        display: block !important;
+    }
+
+    .submenu li a {
+        font-size: 15px !important;
+        padding: 10px 36px !important;     /* indentation pour montrer la hiérarchie */
+        color: rgba(255, 255, 255, 0.82) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .submenu li a:hover {
+        background-color: #a01212 !important;
+        color: white !important;
+    }
+}
