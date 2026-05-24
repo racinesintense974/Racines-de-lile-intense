@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racines - L'histoire de l'île intense</title>
+    <link rel="stylesheet" href="css/style.css">
+<script>
+    // Si la page est ouverte directement (pas dans une iframe), redirige vers main.html
+    if (window.self === window.top) {
+        window.location.href = "main.html";
+    }
+</script>
+
+</head>
+
+<body>
+    <section class="top-page">
+        <header class="header"> 
+            <img src="image/logo22.png" alt="logo du site">
+                    <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav">
+                <ul class="menu">
+                    <li><a href="index.html" target="contenu">Accueil</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Lieux cultes</a>
+                        <ul class="submenu">
+                            <li><a href="mafate.html" target="contenu">Mafate</a></li>
+                            <li><a href="cilaos.html" target="contenu">Cilaos</a></li>
+                            <li><a href="volcans.html" target="contenu">Les volcans</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Personnalités emblématiques</a>
+                        <ul class="submenu">
+                            <li><a href="olivier-levasseur.html" target="contenu">Olivier Levasseur</a></li>
+                            <li><a href="Desbassayns.html" target="contenu">Madame Desbassayns</a></li>
+                            <li><a href="Garros.html" target="contenu">Rolland Garros</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="landing-page">
+            <h1 class="big-title">Explore l'histoire vivante de la Réunion à travers ses lieux, ses volcans et ses figures emblématiques</h1>
+        </div>
+
+        <div class="conteneur-central">
+            <section class="galerie-images">
+
+    <a href="mafate.html" target="contenu">
+        <img src="image/mafate.jpg" alt="Mafate">
+    </a>
+
+    <a href="volcans.html" target="contenu">
+        <img src="image/volcan.jpeg" alt="Volcan">
+    </a>
+
+    <a href="Desbassayns.html" target="contenu">
+        <img src="image/desbassyns.png" alt="Madame Desbassayns">
+    </a>
+
+</section>
+        </div>
+
+        <footer class="footer"> 
+            <h1 class="big-title2">Ce site retrace les grandes lignes de l'histoire de La Réunion, depuis l'île Bourbon jusqu'à aujourd'hui. Découvrez les lieux symboliques, les événements marquants et les personnages qui ont façonné l'île intense.</h1>
+            <p>&copy; 2025 Racines de l'île Intense — Tous droits réservés.</p>
+            <p><a href="mentions-legales.html" target="contenu">Mentions légales</a> | <a href="contact.html" target="contenu">Contact</a></p>
+        </footer>
+    </section>
+
+    <!-- ===== MENU HAMBURGER MOBILE ===== -->
+    <script>
+    /* Ouvre ou ferme le menu principal */
+    function toggleMenu() {
+        var nav  = document.querySelector('nav.nav');
+        var btn  = document.querySelector('.menu-toggle');
+        var bars = btn.querySelectorAll('span');
+        var open = nav.classList.toggle('ouvert');
+
+        /* Anime les 3 barres en croix quand ouvert */
+        bars[0].style.transform = open ? 'rotate(45deg) translate(5px, 6px)' : '';
+        bars[1].style.opacity   = open ? '0' : '';
+        bars[2].style.transform = open ? 'rotate(-45deg) translate(5px, -6px)' : '';
+
+        /* Si on ferme, ferme aussi tous les sous-menus */
+        if (!open) {
+            document.querySelectorAll('.dropdown').forEach(function(d) {
+                d.classList.remove('ouvert');
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* Sous-menus : ouverture au clic sur mobile */
+        document.querySelectorAll('.dropdown > a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    var parent = this.parentElement;
+                    var wasOpen = parent.classList.contains('ouvert');
+                    /* Ferme tous les autres sous-menus d'abord */
+                    document.querySelectorAll('.dropdown').forEach(function(d) {
+                        d.classList.remove('ouvert');
+                    });
+                    /* Ouvre celui-ci seulement s'il était fermé */
+                    if (!wasOpen) parent.classList.add('ouvert');
+                }
+            });
+        });
+
+        /* Clic en dehors du menu = ferme tout */
+        document.addEventListener('click', function(e) {
+            var nav = document.querySelector('nav.nav');
+            var btn = document.querySelector('.menu-toggle');
+            if (!nav || !btn) return;
+            if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.classList.remove('ouvert');
+                document.querySelectorAll('.dropdown').forEach(function(d) {
+                    d.classList.remove('ouvert');
+                });
+                var bars = btn.querySelectorAll('span');
+                bars[0].style.transform = '';
+                bars[1].style.opacity   = '';
+                bars[2].style.transform = '';
+            }
+        });
+
+        /* Redimensionnement : reset si on repasse en mode PC */
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                var nav = document.querySelector('nav.nav');
+                var btn = document.querySelector('.menu-toggle');
+                if (nav) nav.classList.remove('ouvert');
+                document.querySelectorAll('.dropdown').forEach(function(d) {
+                    d.classList.remove('ouvert');
+                });
+                if (btn) {
+                    var bars = btn.querySelectorAll('span');
+                    bars[0].style.transform = '';
+                    bars[1].style.opacity   = '';
+                    bars[2].style.transform = '';
+                }
+            }
+        });
+
+    });
+    </script>
+</body>
+</html>
